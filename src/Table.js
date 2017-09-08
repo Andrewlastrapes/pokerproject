@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import './Table.css';
+
 
 
 class Table extends Component{
@@ -8,9 +10,13 @@ class Table extends Component{
 	}
 	render(){
 		return(
-			<div className="table">
-				<h1>{this.props.players[0].username}</h1>
-
+			<div className="placeholder">
+				<div className="user">
+					<h5>{this.props.players[0].username}</h5>
+				</div>
+				<div className="table">
+					<h1></h1>
+					</div>
 			</div>
 			)
 

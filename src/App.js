@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Options from "./Options.js"
 import Table from "./Table.js"
+import Card from "./Card.js"
 
 class App extends Component {
   constructor(props){
@@ -30,8 +31,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <Options />
       <Table players={this.state.users}/>
+      
+      <Options />
       </div>
     );
   }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Options.css';
 
 
 class Options extends Component{
@@ -8,9 +9,11 @@ class Options extends Component{
 	}
 	render(){
 		return(
-			<div>
-				<h3>Call</h3>
-				<h3>Fold</h3>
+			<div className="options">
+				
+				<div><a href="#">Call</a></div>
+				<div><a href="#">Fold</a></div>
+
 
 			</div>
 			)
