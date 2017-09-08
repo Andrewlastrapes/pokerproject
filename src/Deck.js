@@ -5,8 +5,12 @@ class Deck extends Component {
 	constructor(props){
 		super(props)
 
-		this.state = {
 
+
+
+
+		this.state = {
+			// 52 cards?
 		}
 
 	}

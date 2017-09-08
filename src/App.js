@@ -32,7 +32,8 @@ class App extends Component {
     return (
       <div className="App">
       <Table players={this.state.users}/>
-      
+      <Card />
+
       <Options />
       </div>
     );
