@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Table.css';
+import Board from "./Board.js"
 
 
 
@@ -15,7 +16,7 @@ class Table extends Component{
 					<h5>{this.props.players[0].username}</h5>
 				</div>
 				<div className="table">
-					<h1></h1>
+					<Board board={this.props.board}/>
 					</div>
 			</div>
 			)
