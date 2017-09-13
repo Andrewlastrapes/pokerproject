@@ -4,6 +4,7 @@ import Options from "./Options.js"
 import Table from "./Table.js"
 import Card from "./Card.js"
 
+
 function shuffleDeck(array){
   var currentIndex = array.length, temporaryValue, randomIndex
   while(0 !== currentIndex){
@@ -56,14 +57,14 @@ class App extends Component {
       username : "user1",
       clock : Date(),
       stack : 500,
-      hand : ["", ""],
+      hand : [deck.pop(), deck.pop()],
       position : "",
     }, 
       {
       username : "user2",
       clock : Date(),
       stack : 500,
-      hand : ["", ""],
+      hand : [deck.pop(), deck.pop()],
       position : "",
     }]
 
@@ -77,17 +78,35 @@ class App extends Component {
         river: []
       }
     }
+  
+    
+
+
   }
+
+
+  deal(){
+    // 2 cards to each user.
+
+  }
+
+
 
   render() {
   
  
     return (
       <div className="App">
+
+        
+        
+
         <Table players={this.state.users}
-               board= {this.state.board}/>
+               flopTurnRiver= {this.state.board}/>
+
         
         <Options />
+
       </div>
     );
   }

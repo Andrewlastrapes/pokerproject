@@ -13,6 +13,7 @@ class Options extends Component{
 				
 				<div><a href="#">Call</a></div>
 				<div><a href="#">Fold</a></div>
+				
 
 
 			</div>
