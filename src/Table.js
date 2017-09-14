@@ -12,31 +12,6 @@ class Table extends Component{
 	}
 	render(){
 
-		// This represents the table
-		// this.props.board
-		// this.props.players
-		//   {
-        // flop: [deck.pop(), deck.pop(),deck.pop()],
-        // turn: [],
-        // river: []
-    // }
-    // {
-    // 	  var users = [{
-    //   username : "user1",
-    //   clock : Date(),
-    //   stack : 500,
-    //   hand : [deck.pop(), deck.pop()],
-    //   position : "",
-    // }, 
-    //   {
-    //   username : "user2",
-    //   clock : Date(),
-    //   stack : 500,
-    //   hand : [deck.pop(), deck.pop()],
-    //   position : "",
-    // }]
-    // }
-
 
 
 		var array = []
@@ -47,14 +22,23 @@ class Table extends Component{
 
 
 
-		return(
-			<div className="placeholder">
 
-				<div className="table">
-					{array}
-					<Board flopTurnRiver2={this.props.flopTurnRiver}/>
-					</div>
-			</div>
+		return(
+			
+			<div className="table">
+
+				<div className="User1">{array[0]}</div>
+				<div className="User2">{array[1]}</div>
+				<div className="User3">{array[2]}</div>
+				<div className="User4">{array[3]}</div>
+				<div className="User5">{array[4]}</div>
+				<div className="User6">{array[5]}</div>
+				<div className="User7">{array[6]}</div>
+				<div className="User8">{array[7]}</div>
+
+				<Board className="board"flopTurnRiver2={this.props.flopTurnRiver}/>
+				</div>
+			
 			)
 
 

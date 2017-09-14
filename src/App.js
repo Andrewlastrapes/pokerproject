@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Options from "./Options.js"
 import Table from "./Table.js"
-import Card from "./Card.js"
+import Image from "./Image.js"
 
 
 function shuffleDeck(array){
@@ -74,8 +74,8 @@ class App extends Component {
       deck : deck,
       board: {
         flop: [deck.pop(), deck.pop(),deck.pop()],
-        turn: [],
-        river: []
+        turn: [deck.pop()],
+        river: [deck.pop()]
       }
     }
   
@@ -85,21 +85,13 @@ class App extends Component {
   }
 
 
-  deal(){
-    // 2 cards to each user.
-
-  }
-
-
-
   render() {
   
  
     return (
       <div className="App">
 
-        
-        
+        <Image />
 
         <Table players={this.state.users}
                flopTurnRiver= {this.state.board}/>

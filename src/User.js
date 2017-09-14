@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Card from "./Card.js"
+import "./User.css"
 
 class User extends Component {
 	constructor(props){
@@ -8,15 +9,7 @@ class User extends Component {
 
 
 	}
-// This class represents a user.
-// It gets passed a player prop.
-// this.props.player
-//   {username : "user2",
-      // clock : Date(),
-      // stack : 500,
-      // hand : [deck.pop(), deck.pop()],
-      // position : ""
-      // }
+
 
 
 render(){
@@ -26,12 +19,16 @@ render(){
 						 suit={this.props.player.hand[i].suit}/>)			
 	}
 
+
+
 	return(
 
 		<div className="user">
 
 			<h4>{this.props.player.username}</h4>
-			{array}
+			<h6>{array}</h6>
+			<h6>{this.props.player.stack}</h6>
+
 			
 			
 
