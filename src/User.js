@@ -3,19 +3,15 @@ import Card from "./Card.js"
 import "./User.css"
 
 class User extends Component {
-	constructor(props){
-		super(props)
-
-
-
-	}
 
 
 
 render(){
 	var array = []
+	// Everytime a for loop has jsx, add a key property.
 	for (var i = 0; i < this.props.player.hand.length; i++){
-		array.push(<Card number={this.props.player.hand[i].number}
+		array.push(<Card key={i} 
+						number={this.props.player.hand[i].number}
 						 suit={this.props.player.hand[i].suit}/>)			
 	}
 

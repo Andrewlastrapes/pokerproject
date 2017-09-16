@@ -8,15 +8,21 @@ class Board extends Component{
 
 	}
 	render(){
+
+		var flop = []
+		var turn = []
+		var river = []
+		// Everytime a for loop has jsx, add a key property.
+		for (var i = 0; i < this.props.flopTurnRiver2.flop.length; i++){
+			flop.push(<div 	key={i} 
+							className="col-xs-2"><Card number={this.props.flopTurnRiver2.flop[i].number}
+						 	suit={this.props.flopTurnRiver2.flop[i].suit}/></div>)			
+		}
 		return(
 			<div className="board">
 				<div className="container">
-					<div className="col-xs-2"> <Card number={this.props.flopTurnRiver2.flop[0].number}	
-					  suit=	{this.props.flopTurnRiver2.flop[0].suit}/></div>
-					<div className="col-xs-2"><Card number={this.props.flopTurnRiver2.flop[1].number}	
-					  suit=	{this.props.flopTurnRiver2.flop[1].suit}/></div>
-					<div className="col-xs-2"><Card number={this.props.flopTurnRiver2.flop[2].number}	
-					  suit=	{this.props.flopTurnRiver2.flop[2].suit}/></div>
+					{flop}
+				
 			</div>
 			
 		</div>		

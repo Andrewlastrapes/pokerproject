@@ -5,24 +5,7 @@ import Table from "./Table.js"
 import Image from "./Image.js"
 
 
-function shuffleDeck(array){
-  var currentIndex = array.length, temporaryValue, randomIndex
-  while(0 !== currentIndex){
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-  return array;
-}
-
-
-class App extends Component {
-  constructor(props){
-    super(props)
-   
-
+function generateNewDeck(){
   var hearts = []
   var spades = []
   var diamonds = []
@@ -49,23 +32,42 @@ class App extends Component {
   }
 
   var deck = hearts.concat(spades).concat(diamonds).concat(clubs);
+  var currentIndex = deck.length, temporaryValue, randomIndex
+  while(0 !== currentIndex){
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    temporaryValue = deck[currentIndex];
+    deck[currentIndex] = deck[randomIndex];
+    deck[randomIndex] = temporaryValue;
+  }
 
-  shuffleDeck(deck)
+  return deck;
+}
+
+
+class App extends Component {
+  constructor(props){
+    super(props)
+   
+
+
+
+  var deck = generateNewDeck()
 
 
    var users = [{
       username : "user1",
       clock : Date(),
       stack : 500,
-      hand : [deck.pop(), deck.pop()],
-      position : "",
+      hand : [],
+      position : ""
     }, 
       {
       username : "user2",
       clock : Date(),
       stack : 500,
-      hand : [deck.pop(), deck.pop()],
-      position : "",
+      hand : [],
+      position : ""
     }]
 
 
@@ -73,17 +75,59 @@ class App extends Component {
       users: users,
       deck : deck,
       board: {
-        flop: [deck.pop(), deck.pop(),deck.pop()],
-        turn: [deck.pop()],
-        river: [deck.pop()]
+        flop: [],
+        turn: [],
+        river: []
       }
     }
   
-    
+
 
 
   }
 
+
+  deal(){
+    var newUsers = [];
+    var NewDeck = generateNewDeck()
+    // Copies old user array to newUsers
+    for (var i = 0; i < this.state.users.length; i++){
+      newUsers.push(Object.assign({}, this.state.users[i]))
+      newUsers[i].hand = [NewDeck.pop(), NewDeck.pop()]
+    }
+
+
+
+    this.setState({
+      users: newUsers,
+      deck: NewDeck
+
+    });
+  }
+
+  flop(){
+    this.setState({
+      board: {
+        flop: [this.state.deck.pop(), this.state.deck.pop(), this.state.deck.pop()]
+      } 
+    })
+  }
+
+  turn(){
+    this.setState({
+      board: {
+        turn: [this.state.deck.pop()]
+      } 
+    })
+  }
+
+  river(){
+    this.setState({
+      board: {
+        river: [this.state.deck.pop()]
+      } 
+    })
+  }
 
   render() {
   
@@ -97,7 +141,10 @@ class App extends Component {
                flopTurnRiver= {this.state.board}/>
 
         
-        <Options />
+        <Options  deal={this.deal.bind(this)}
+                  flop={this.flop.bind(this)}
+                  turn={this.turn.bind(this)}
+                  river={this.river.bind(this)}/>
 
       </div>
     );
