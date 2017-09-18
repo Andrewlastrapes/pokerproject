@@ -60,15 +60,27 @@ class App extends Component {
       clock : Date(),
       stack : 500,
       hand : [],
-      position : ""
+      position : "Dealer",
+      isActive: false
     }, 
       {
       username : "user2",
       clock : Date(),
       stack : 500,
       hand : [],
-      position : ""
-    }]
+      position : "Small Blind",
+      isActive: false
+    },
+      {
+      username: "user3",
+      clock : Date(),
+      stack : 500,
+      hand : [],
+      position : "Big Blind",
+      isActive: false
+      }
+
+    ]
 
 
     this.state = {

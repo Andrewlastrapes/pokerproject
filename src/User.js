@@ -24,6 +24,7 @@ render(){
 			<h4>{this.props.player.username}</h4>
 			<h6>{array}</h6>
 			<h6>{this.props.player.stack}</h6>
+			<h6>{this.props.player.position}</h6>
 
 			
 			

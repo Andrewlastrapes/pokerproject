@@ -26,13 +26,15 @@
 
 .User2{
 	position: absolute;
-	top: 10px;
-	right: 50px;
+	top: -12px;
+	left: 600px;
 }
 
 
 .User3 {
-
+	position: absolute;
+	top: 10px;
+	right: 50px;
 }
 
 .User4 {

@@ -14,8 +14,7 @@ class Card extends Component{
 render(){
 	return(
 		<div className="card">
-			<h5>{this.props.number}
-			{this.props.suit}</h5>
+			
 
 			 <Image number={this.props.number}
 			 		suit={this.props.suit}/>
