@@ -125,7 +125,10 @@ class App extends Component {
     });
   }
 
+
+
   nextTurn(){
+       
        var newActive = []
        var newUsers = []
    
@@ -135,12 +138,180 @@ class App extends Component {
          newUsers[i].isActive = false 
         
          newActive = i + 1 
+        }
+
+         if (newActive == this.state.users.length){
+          newActive = 0;
+         }
+         
+      }
+      while(newUsers[newActive].folded == true){
+        newActive++
+      }
+      newUsers[newActive].isActive = true
+    
+
+      this.setState({
+        users: newUsers
+        });
+  
+
+  }
+
+  call(){
+      
+      
+       
+       var newActive = []
+       var newUsers = []
+       var newPhase = []
+
+
+
+       for (var i = 0; i < this.state.users.length; i++){
+        newUsers.push(Object.assign({}, this.state.users[i]))
+
+        if(newUsers[i].marker == true & newUsers[i].isActive == true){
+        
+        if(this.state.phase == "preflop"){
+          this.flop()
+          newPhase = "flop"
+          this.setState({
+            phase: newPhase
+          })
+          this.nextTurn()
+         }
+        if(this.state.phase == "flop"){
+          this.turn()
+          newPhase = "turn"
+          this.setState({
+            phase: newPhase
+          })
+          this.nextTurn()
+        }
+         if(this.state.phase == "turn"){
+          this.river()
+          newPhase = "river"
+          this.setState({
+            phase: newPhase
+          })
+          this.nextTurn()
+        } 
+        
+        } else{
+          this.nextTurn()
+
+      }
+
+
+      this.setState({
+       
+        phase: newPhase
+      })
+
+  }
+}
+
+  check(){
+        
+       
+       var newActive = []
+       var newUsers = []
+       var newPhase = []
+
+
+
+       for (var i = 0; i < this.state.users.length; i++){
+        newUsers.push(Object.assign({}, this.state.users[i]))
+
+        if(newUsers[i].marker == true & newUsers[i].isActive == true){
+        
+        if(this.state.phase == "preflop"){
+          this.flop()
+          newPhase = "flop"
+          this.setState({
+            phase: newPhase
+          })
+          this.nextTurn()
+         }
+        if(this.state.phase == "flop"){
+          this.turn()
+          newPhase = "turn"
+          this.setState({
+            phase: newPhase
+          })
+          this.nextTurn()
+        }
+         if(this.state.phase == "turn"){
+          this.river()
+          newPhase = "river"
+          this.setState({
+            phase: newPhase
+          })
+          this.nextTurn()
+        } 
+        
+        } else{
+          this.nextTurn()
+
+      }
+
+
+  }
+}
+
+  raise(){
+ 
+  var newActive = []
+   var newUsers = []
+   
+    for (var i = 0; i < this.state.users.length; i++){
+        newUsers.push(Object.assign({}, this.state.users[i]))
+        if (newUsers[i].marker == true){
+          newUsers[i].marker = false;
+        }
+        if (newUsers[i].isActive == true){
+         newUsers[i].isActive = false;
+         newUsers[i].marker = true;
+        } 
+         newActive = i + 1 
+         if (newActive == this.state.users.length){
+          newActive = 0;
+         }
+        }
+         while(newUsers[newActive].folded == true){
+        newActive++
+      }
+       newUsers[newActive].isActive = true
+        
+      
+      this.setState({
+        
+        users: newUsers
+       
+      })
+  
+
+  }
+
+  fold(){
+  
+   var newActive = []
+   var newUsers = []
+   
+    for (var i = 0; i < this.state.users.length; i++){
+        newUsers.push(Object.assign({}, this.state.users[i]))
+        if (newUsers[i].isActive === true){
+         newUsers[i].folded = true;
+         newUsers[i].isActive = false 
+        
+     } 
+         newActive = i + 1 
          if (newActive == this.state.users.length){
           newActive = 0;
          }
         } 
-      }
-      while(newUsers[newActive].folded == true){
+         while(newUsers[newActive].folded == true){
         newActive++
       }
       newUsers[newActive].isActive = true
@@ -169,37 +340,8 @@ class App extends Component {
   
 
   }
-
-  call(){
-    this.nextTurn()
-  }
-
-  check(){
-    this.nextTurn()
-  }
-
-  raise(){
-    this.state.users.marker = true;
-    this.nextTurn()
-   }
-
-  fold(){
-   
-   var newActive = []
-   var newUsers = []
-   
-    for (var i = 0; i < this.state.users.length; i++){
-        newUsers.push(Object.assign({}, this.state.users[i]))
-        if (newUsers[i].isActive == true){
-         newUsers[i].folded = true;
-        
-     }
-   }
-    this.setState({
-        users: newUsers
-      })
-   this.nextTurn()
-}
+    
+  
 
   flop(){
     this.setState({
@@ -225,8 +367,23 @@ class App extends Component {
     })
   }
 
+  // handOver(){
+  //   for (var i = 0; i < this.state.users.length; i++){
+  //       newUsers.push(Object.assign({}, this.state.users[i]))
+  //       if(newUsers.isActive == 1){
+
+  //       }
+
+  // }
+
+
+    // Or While (newUsers.isActive > 1)....continue
+
+
+
+
   render() {
-  
+  console.log(this.state.users)
  
     return (
       <div className="App">
@@ -234,7 +391,9 @@ class App extends Component {
         <Image />
 
         <Table players={this.state.users}
-               flopTurnRiver= {this.state.board}/>
+               flopTurnRiver= {this.state.board}
+               phase={this.state.phase}/>
+
 
         
         <Options  deal={this.deal.bind(this)}

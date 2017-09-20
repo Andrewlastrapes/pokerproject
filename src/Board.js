@@ -17,17 +17,19 @@ class Board extends Component{
 			flop.push(<div 	key={i} 
 							className="col-xs-2"><Card number={this.props.flopTurnRiver2.flop[i].number}
 						 	suit={this.props.flopTurnRiver2.flop[i].suit}/></div>)			
+
 		}
+		
+
+		
 		
 		
 		return(
 			<div className="board">
 				<div className="container">
 					{flop}
-					{turn}
-					{river}
-				
-			</div>
+					
+				</div>
 			
 		</div>		
 			)

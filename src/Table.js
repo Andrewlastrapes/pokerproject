@@ -27,6 +27,7 @@ class Table extends Component{
 			
 			<div className="table">
 
+				
 				<div className="User1">{array[0]}</div>
 				<div className="User2">{array[1]}</div>
 				<div className="User3">{array[2]}</div>
@@ -36,7 +37,11 @@ class Table extends Component{
 				<div className="User7">{array[6]}</div>
 				<div className="User8">{array[7]}</div>
 
+
+
 				<Board className="board"flopTurnRiver2={this.props.flopTurnRiver}/>
+				<div className="phase">{this.props.phase}</div>
+
 				</div>
 			
 			)
