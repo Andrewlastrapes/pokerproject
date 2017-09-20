@@ -39,7 +39,10 @@ class Table extends Component{
 
 
 
-				<Board className="board"flopTurnRiver2={this.props.flopTurnRiver}/>
+				<Board className="board"flop={this.props.flop}
+										turn={this.props.turn}
+										river={this.props.river}
+										pot={this.props.pot}/>
 				<div className="phase">{this.props.phase}</div>
 
 				</div>

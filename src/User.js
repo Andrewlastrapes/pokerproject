@@ -25,9 +25,6 @@ render(){
 			<h6>{array}</h6>
 			<h6>{this.props.player.stack}</h6>
 			<h6>{this.props.player.position}</h6>
-			<h6>{this.props.player.isActive + "Active"}</h6>
-			<h6>{this.props.player.folded + "folded"}</h6>
-			<h6>{this.props.player.marker + "marker"}</h6>
 			<h6>{this.props.phase}</h6>
 
 			

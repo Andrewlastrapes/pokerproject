@@ -92,12 +92,11 @@ class App extends Component {
     this.state = {
       users: users,
       deck : deck,
-      board: {
-        flop: [],
-        turn: [],
-        river: []
-      },
+      flop: [],
+      turn: [],
+      river: [],
       phase: "preflop",
+      pot: "$" + 0
       
     }
   
@@ -127,15 +126,19 @@ class App extends Component {
 
 
 
-  nextTurn(){
+
+  nextTurn(newUsers, preventsPhaseChange){
        
-       var newActive = []
-       var newUsers = []
+       var newPhase = this.state.phase
+       var newActive = 0
+       var oldActive = 0
+       
    
-    for (var i = 0; i < this.state.users.length; i++){
-        newUsers.push(Object.assign({}, this.state.users[i]))
+    for (var i = 0; i < newUsers.length; i++){
+      
         if (newUsers[i].isActive == true){
          newUsers[i].isActive = false 
+         oldActive = i
         
          newActive = i + 1 
         }
@@ -149,10 +152,33 @@ class App extends Component {
         newActive++
       }
       newUsers[newActive].isActive = true
+      
+      if(newUsers[oldActive].marker == true && preventsPhaseChange == false) {
+        
+        if(this.state.phase == "preflop"){
+          this.flop()
+          newPhase = "flop"
+         
+      
+         }
+        if(this.state.phase == "flop"){
+          this.turn()
+          newPhase = "turn"
+          
+         
+        }
+         if(this.state.phase == "turn"){
+          this.river()
+          newPhase = "river"
+          
+          
+        } 
+      }
     
 
       this.setState({
-        users: newUsers
+        users: newUsers, 
+        phase: newPhase
         });
   
 
@@ -160,103 +186,30 @@ class App extends Component {
 
   call(){
       
-      
-       
-       var newActive = []
        var newUsers = []
-       var newPhase = []
-
-
-
-       for (var i = 0; i < this.state.users.length; i++){
+       
+      for (var i = 0; i < this.state.users.length; i++){
         newUsers.push(Object.assign({}, this.state.users[i]))
 
-        if(newUsers[i].marker == true & newUsers[i].isActive == true){
-        
-        if(this.state.phase == "preflop"){
-          this.flop()
-          newPhase = "flop"
-          this.setState({
-            phase: newPhase
-          })
-          this.nextTurn()
-         }
-        if(this.state.phase == "flop"){
-          this.turn()
-          newPhase = "turn"
-          this.setState({
-            phase: newPhase
-          })
-          this.nextTurn()
-        }
-         if(this.state.phase == "turn"){
-          this.river()
-          newPhase = "river"
-          this.setState({
-            phase: newPhase
-          })
-          this.nextTurn()
         } 
-        
-        } else{
-          this.nextTurn()
-
-      }
-
-  }
+   
+          this.nextTurn(newUsers, false)
 }
+
 
   check(){
         
-       
-       var newActive = []
        var newUsers = []
-       var newPhase = []
-
-
-
+     
        for (var i = 0; i < this.state.users.length; i++){
         newUsers.push(Object.assign({}, this.state.users[i]))
 
-        if(newUsers[i].marker == true & newUsers[i].isActive == true){
-        
-        if(this.state.phase == "preflop"){
-          this.flop()
-          newPhase = "flop"
-          this.setState({
-            phase: newPhase
-          })
-          this.nextTurn()
-         }
-        if(this.state.phase == "flop"){
-          this.turn()
-          newPhase = "turn"
-          this.setState({
-            phase: newPhase
-          })
-          this.nextTurn()
-        }
-         if(this.state.phase == "turn"){
-          this.river()
-          newPhase = "river"
-          this.setState({
-            phase: newPhase
-          })
-          this.nextTurn()
-        } 
-        
-        } else{
-          this.nextTurn()
-
-      }
-
-
-  }
+       }
+       this.nextTurn(newUsers, false)
 }
 
   raise(){
  
-  var newActive = []
    var newUsers = []
    
     for (var i = 0; i < this.state.users.length; i++){
@@ -265,18 +218,11 @@ class App extends Component {
           newUsers[i].marker = false;
         }
         if (newUsers[i].isActive == true){
-         newUsers[i].isActive = false;
+    
          newUsers[i].marker = true;
-        } 
-         newActive = i + 1 
-         if (newActive == this.state.users.length){
-          newActive = 0;
-         }
+         } 
+        
         }
-         while(newUsers[newActive].folded == true){
-        newActive++
-      }
-       newUsers[newActive].isActive = true
         
       
       this.setState({
@@ -284,7 +230,8 @@ class App extends Component {
         users: newUsers
        
       })
-  
+
+    this.nextTurn(newUsers, true)
 
   }
 
@@ -297,40 +244,13 @@ class App extends Component {
         newUsers.push(Object.assign({}, this.state.users[i]))
         if (newUsers[i].isActive === true){
          newUsers[i].folded = true;
-         newUsers[i].isActive = false 
         
-     } 
-         newActive = i + 1 
-         if (newActive == this.state.users.length){
-          newActive = 0;
-         }
+        
         } 
-         while(newUsers[newActive].folded == true){
-        newActive++
-      }
-      newUsers[newActive].isActive = true
-      var newPhase = this.state.phase
-      if(newUsers[newActive].marker == true){
-        
-        if(this.state.phase == "preflop"){
-          this.flop()
-          newPhase = "flop"
-         }
-        if(this.state.phase == "flop"){
-          this.turn()
-          newPhase = "turn"
-        }
-         if(this.state.phase == "turn"){
-          this.river()
-          newPhase = "river"
-        }
-
-      }
-
-      this.setState({
-        users: newUsers,
-        phase: newPhase
-      })
+      
+    } 
+       
+      this.nextTurn(newUsers, false)
   
 
   }
@@ -339,25 +259,25 @@ class App extends Component {
 
   flop(){
     this.setState({
-      board: {
+      
         flop: [this.state.deck.pop(), this.state.deck.pop(), this.state.deck.pop()]
-      } 
+      
     })
   }
 
   turn(){
     this.setState({
-      board: {
+     
         turn: [this.state.deck.pop()]
-      } 
+      
     })
   }
 
   river(){
     this.setState({
-      board: {
+     
         river: [this.state.deck.pop()]
-      } 
+      
     })
   }
 
@@ -385,8 +305,11 @@ class App extends Component {
         <Image />
 
         <Table players={this.state.users}
-               flopTurnRiver= {this.state.board}
-               phase={this.state.phase}/>
+               flop={this.state.flop}
+               turn={this.state.turn}
+               river={this.state.river}
+               phase={this.state.phase}
+               pot = {this.state.pot}/>
 
 
         
