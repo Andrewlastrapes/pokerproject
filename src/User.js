@@ -1,8 +1,18 @@
 import React, { Component } from 'react'
 import Card from "./Card.js"
 import "./User.css"
+import "./highlighted.css"
 
 class User extends Component {
+	constructor(props){
+    super(props)
+
+}
+    // active(){
+    // 	if (this.props.player.isActive == true) {
+    // 	return(<h2 className="highlighted">Hi</h2>)
+    // 	}
+    // }
 
 
 
@@ -15,18 +25,18 @@ render(){
 						 suit={this.props.player.hand[i].suit}/>)			
 	}
 
-
+	
 
 	return(
 
-		<div className="user">
+		// <div className="user">
+		<div className={this.props.player.isActive ? "highlighted" : "User"}>
 
 			<h4>{this.props.player.username}</h4>
 			<h6>{array}</h6>
 			<h6>{this.props.player.stack}</h6>
 			<h6>{this.props.player.position}</h6>
 			<h6>{this.props.phase}</h6>
-
 			
 			
 

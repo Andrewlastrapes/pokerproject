@@ -5,6 +5,8 @@ import Table from "./Table.js"
 import Image from "./Image.js"
 
 
+
+
 function generateNewDeck(){
   var hearts = []
   var spades = []
@@ -96,8 +98,8 @@ class App extends Component {
       turn: [],
       river: [],
       phase: "preflop",
-      pot: "$" + 0
-      
+      pot: "$" + 0,
+      fold: 0
     }
   
 
@@ -123,7 +125,6 @@ class App extends Component {
 
     });
   }
-
 
 
 
@@ -180,7 +181,8 @@ class App extends Component {
         users: newUsers, 
         phase: newPhase
         });
-  
+    
+
 
   }
 
@@ -222,6 +224,8 @@ class App extends Component {
          newUsers[i].marker = true;
          } 
         
+         // Need to write "all in"
+
         }
         
       
@@ -236,19 +240,32 @@ class App extends Component {
   }
 
   fold(){
+
   
    var newActive = []
    var newUsers = []
+   
    
     for (var i = 0; i < this.state.users.length; i++){
         newUsers.push(Object.assign({}, this.state.users[i]))
         if (newUsers[i].isActive === true){
          newUsers[i].folded = true;
-        
-        
-        } 
+      } 
+        if (newUsers[i].folded === true){
+        this.setState({
+          fold : this.state.fold + 1
+        })
+       }  
+        if (this.state.fold === this.state.users.length - 1){
+        this.setState({
+          fold: 0
+        });
+        alert("Game Over");
+
+      }
+
       
-    } 
+    }
        
       this.nextTurn(newUsers, false)
   
@@ -281,23 +298,9 @@ class App extends Component {
     })
   }
 
-  // handOver(){
-  //   for (var i = 0; i < this.state.users.length; i++){
-  //       newUsers.push(Object.assign({}, this.state.users[i]))
-  //       if(newUsers.isActive == 1){
-
-  //       }
-
-  // }
-
-
-    // Or While (newUsers.isActive > 1)....continue
-
-
-
 
   render() {
-  console.log(this.state.users)
+  
  
     return (
       <div className="App">
@@ -314,13 +317,11 @@ class App extends Component {
 
         
         <Options  deal={this.deal.bind(this)}
-                  flop={this.flop.bind(this)}
-                  turn={this.turn.bind(this)}
-                  river={this.river.bind(this)}
                   call ={this.call.bind(this)}
                   fold={this.fold.bind(this)}
                   raise={this.raise.bind(this)}
                   check={this.check.bind(this)}/>
+      
 
       </div>
     );
