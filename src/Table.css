@@ -27,32 +27,43 @@
 .User2{
 	position: absolute;
 	top: -12px;
-	left: 600px;
+	left: 400px;
 }
 
 
 .User3 {
 	position: absolute;
+	top: -12px;
+	right: 225px;
+}
+
+.User4 {
+	position: absolute;
 	top: 10px;
 	right: 50px;
 }
 
-.User4 {
-
-}
-
 .User5 {
-
+	position: absolute;
+	top: 300px;
+	left: 200px;
 }
 
 .User6 {
-
+	position: absolute;
+	top: 325px;
+	left: 400px;
 }
 
 .User7 {
-
+	position: absolute;
+	top: 330px;
+	right: 225px;
 }
 
 .User8 {
+	position: absolute;
+	top: 330px;
+	right: 50px;
 
 }

@@ -46,7 +46,7 @@ class Board extends Component{
 
 					
 				</div>
-				<div className="pot">{"Pot: "+ this.props.pot}</div>
+				<div className="pot">{"Pot: $"+ this.props.pot}</div>
 			
 		</div>		
 			)

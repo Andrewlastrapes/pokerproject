@@ -60,33 +60,92 @@ class App extends Component {
    var users = [{
       username : "user1",
       clock : Date(),
-      stack : 500,
+      stack : 50,
       hand : [],
       position : "Dealer",
-      isActive: true,
+      isActive: false,
       folded: false,
-      marker: false
+      marker: false,
+      bet: 0
     }, 
       {
       username : "user2",
       clock : Date(),
-      stack : 500,
+      stack : 50,
       hand : [],
       position : "Small Blind",
       isActive: false,
       folded: false,
-      marker: false
+      marker: false,
+      bet: 0
     },
       {
       username: "user3",
       clock : Date(),
-      stack : 500,
+      stack : 50,
       hand : [],
       position : "Big Blind",
       isActive: false,
       folded: false,
-      marker: true
+      marker: true,
+      bet: 0
+      },
+      {
+      username : "user4",
+      clock : Date(),
+      stack : 50,
+      hand : [],
+      position : "",
+      isActive: true,
+      folded: false,
+      marker: false,
+      bet: 0
+    }, 
+      {
+      username : "user5",
+      clock : Date(),
+      stack : 50,
+      hand : [],
+      position : "",
+      isActive: false,
+      folded: false,
+      marker: false,
+      bet: 0
+    },
+      {
+      username: "user6",
+      clock : Date(),
+      stack : 50,
+      hand : [],
+      position : "",
+      isActive: false,
+      folded: false,
+      marker: false,
+      bet: 0
+      },
+      {
+      username: "user7",
+      clock : Date(),
+      stack : 50,
+      hand : [],
+      position : "",
+      isActive: false,
+      folded: false,
+      marker: false,
+      bet: 0
+      },
+      {
+      username: "user8",
+      clock : Date(),
+      stack : 50,
+      hand : [],
+      position : "",
+      isActive: false,
+      folded: false,
+      marker: false,
+      bet: 0
       }
+
 
     ]
 
@@ -98,7 +157,7 @@ class App extends Component {
       turn: [],
       river: [],
       phase: "preflop",
-      pot: "$" + 0,
+      pot: 0,
       fold: 0
     }
   
@@ -115,6 +174,16 @@ class App extends Component {
     for (var i = 0; i < this.state.users.length; i++){
       newUsers.push(Object.assign({}, this.state.users[i]))
       newUsers[i].hand = [NewDeck.pop(), NewDeck.pop()]
+      if (newUsers[i].position === "Big Blind"){
+       newUsers[i].stack = newUsers[i].stack - 1
+       newUsers[i].bet = newUsers[i].bet + 1
+        this.state.pot = this.state.pot + 1
+      }
+      if (newUsers[i].position === "Small Blind"){
+       newUsers[i].stack = newUsers[i].stack - .5
+       newUsers[i].bet = newUsers[i].bet + .5
+        this.state.pot = this.state.pot + .5
+      }
     }
 
 
@@ -189,12 +258,31 @@ class App extends Component {
   call(){
       
        var newUsers = []
-       
+       var marker = []
+       var caller = []
+
+
+
       for (var i = 0; i < this.state.users.length; i++){
         newUsers.push(Object.assign({}, this.state.users[i]))
+    
+        if (newUsers[i].marker == true){
+          marker = newUsers[i]
+        }
+        if(newUsers[i].isActive == true){
+          caller = newUsers[i]
+        }
 
-        } 
-   
+    } 
+        
+
+        caller.bet = marker.bet
+        this.state.pot = this.state.pot + caller.bet
+
+
+
+
+          
           this.nextTurn(newUsers, false)
 }
 
@@ -241,7 +329,7 @@ class App extends Component {
 
   fold(){
 
-  
+
    var newActive = []
    var newUsers = []
    
@@ -250,28 +338,33 @@ class App extends Component {
         newUsers.push(Object.assign({}, this.state.users[i]))
         if (newUsers[i].isActive === true){
          newUsers[i].folded = true;
-      } 
+      }
         if (newUsers[i].folded === true){
-        this.setState({
-          fold : this.state.fold + 1
-        })
+        this.state.fold = this.state.fold + 1
+        
        }  
         if (this.state.fold === this.state.users.length - 1){
-        this.setState({
-          fold: 0
-        });
         alert("Game Over");
+        this.state.fold = 0
+        for (var i = 0; newUsers.length; i++){
+          if (newUsers[i].isActive == true){
+            newUsers[i].stack = this.state.pot + newUsers[i].stack 
+          }
+        }
+        this.setState({
+          users: newUsers
+        })
 
+
+        break;
       }
+     }
 
+      this.nextTurn(newUsers, false)
       
     }
        
-      this.nextTurn(newUsers, false)
-  
-
-  }
-    
+      
   
 
   flop(){
