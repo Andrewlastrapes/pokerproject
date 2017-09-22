@@ -17,12 +17,10 @@ class Options extends Component{
 				<div onClick={this.props.fold}><a>Fold</a></div>
 				
 				
-				<form onSubmit={this.handleSubmit}>
-			        <label>
-			          Raise
-			          <input type="text" value={this.props.raiseValue} onChange={this.handleChange}/>
-			        </label>
-			        <input type="submit" value="Submit" />
+				<form onSubmit={this.props.handleSubmit}>
+			       
+			        <input type="text" value={this.props.raiseValue} onChange={this.props.handleChange}/>
+			        <button type="submit" value="Submit">Raise</button>
 			      </form>
 
 				 <div onClick={this.props.allIn}><a>All In</a></div>

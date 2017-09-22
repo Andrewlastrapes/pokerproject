@@ -3,6 +3,7 @@ import './App.css';
 import Options from "./Options.js"
 import Table from "./Table.js"
 import Image from "./Image.js"
+import io from "socket.io-client"
 
 
 
@@ -51,7 +52,7 @@ class App extends Component {
   constructor(props){
     super(props)
    
-
+var socket = new io("http://localhost:3001")
 
 
   var deck = generateNewDeck()
@@ -304,6 +305,7 @@ class App extends Component {
  
    var newUsers = []
    var raiser = []
+   var pot = 0
    
     for (var i = 0; i < this.state.users.length; i++){
         newUsers.push(Object.assign({}, this.state.users[i]))
@@ -315,15 +317,19 @@ class App extends Component {
          newUsers[i].marker = true;
          raiser = newUsers[i]
 
-         } 
+          } 
+       }
 
-         this.state.pot = this.state.pot + this.props.raiseValue
-         raiser.stack = raiser.stack - this.props.raiseValue
-        }
+         pot = this.state.pot + parseInt(this.state.raiseValue)
+         raiser.stack = raiser.stack - parseInt(this.state.raiseValue)
+         raiser.bet = parseInt(this.state.raiseValue)
+
+        
         
       
       this.setState({
         
+        pot: pot,
         users: newUsers
        
       })
@@ -332,12 +338,32 @@ class App extends Component {
 
   }
 
-    handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
+  handleSubmit(event) {
     event.preventDefault();
+    var markerUser = []
+
+    for (var i = 0; i < this.state.users.length; i++){
+          if (this.state.users[i].marker === true){
+            markerUser = this.state.users[i]
+          }
+       }
+       
+    var isNumber = parseInt(this.state.raiseValue)
+
+    var isDoubleMarker = parseInt(this.state.raiseValue) >= markerUser.bet * 2 
+
+
+    if (isNumber && isDoubleMarker){
+        this.raise()
+      } else {
+        alert("Please enter valid number")
+      }
+    
+    
+    
   }
 
-   handleChange(event) {
+   handleChange(event) {console.log(event.target.value)
     this.setState({raiseValue: event.target.value});
   }
 
@@ -357,22 +383,17 @@ class App extends Component {
       }
         if (newUsers[i].folded === true){
         fold.push(newUsers[i])
-        this.state.fold = fold
+       
         
        }  
      }
         
         for (var i = 0; i < newUsers.length; i++){
-          if (newUsers.length - this.state.fold.length === 1){
+          if (newUsers.length - fold.length === 1){
             if (newUsers[i].folded == false){
               var winner = newUsers[i]
               winner.stack = this.state.pot + winner.stack 
-              this.state.fold = []
-          // if (newUsers[i].folded == false){
-          //     newUsers[i].stack = this.state.pot + newUsers[i].stack 
-                this.setState({
-                   users: newUsers
-                  })
+              
                 alert(winner.username + " wins " + "$ " + this.state.pot);
                   break;
                   }
@@ -380,6 +401,9 @@ class App extends Component {
         }
       
      }
+      this.setState({
+        fold: fold
+      })
 
       this.nextTurn(newUsers, false)
       
@@ -393,12 +417,14 @@ class App extends Component {
   flop(){
        var newActive = 0
        var oldActive = 0
+       var newUsers = []
      
      for (var i = 0; i < this.state.users.length; i++){
         newUsers.push(Object.assign({}, this.state.users[i]))
-        
         oldActive = i
-        newActive = i + 1 
+        
+         newActive = i + 1 
+        
 
 
     }
@@ -406,7 +432,7 @@ class App extends Component {
 
     this.setState({
 
-        users: newUsers
+        users: newUsers,
         flop: [this.state.deck.pop(), this.state.deck.pop(), this.state.deck.pop()]
       
     })
@@ -450,7 +476,8 @@ class App extends Component {
                   call ={this.call.bind(this)}
                   fold={this.fold.bind(this)}
                   check={this.check.bind(this)}
-                  form={this.handleSubmit.bind(this)}/>
+                  handleSubmit={this.handleSubmit.bind(this)}
+                  handleChange={this.handleChange.bind(this)}/>
       
 
       </div>

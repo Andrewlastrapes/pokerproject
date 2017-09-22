@@ -20,6 +20,9 @@ render(){
 						 suit={this.props.player.hand[i].suit}/>)			
 	}
 
+	var active = ""
+	var folded = ""
+	var inGame = ""
 	
 
 	return(
