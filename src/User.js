@@ -28,8 +28,8 @@ render(){
 		<div className={this.props.player.isActive ? "highlighted" : "User"}>
 			
 
-			<h4>{this.props.player.username}</h4>
-			<h6>{array}</h6>
+			{this.props.player.username}
+			{array}
 			<h6>{this.props.player.stack}</h6>
 			<h6>{this.props.player.position}</h6>
 			<h6>{this.props.player.bet}</h6>

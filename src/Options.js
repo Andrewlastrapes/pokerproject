@@ -12,13 +12,21 @@ class Options extends Component{
 			<div className="options">
 				
 
-				<div onClick={this.props.deal}><a href="#">Deal</a></div>
-				<div onClick={this.props.call}><a href="#">Call</a></div>
-				<div onClick={this.props.fold}><a href="#">Fold</a></div>
-				<div onClick={this.props.raise}><a href="#">Raise</a></div>
-				<input type="text" raise="raise"/>
-				 <input type="submit" value="Submit" />
-				<div onClick={this.props.check}><a href="#">Check</a></div>
+				<div onClick={this.props.deal}><a>Deal</a></div>
+				<div onClick={this.props.call}><a>Call</a></div>
+				<div onClick={this.props.fold}><a>Fold</a></div>
+				
+				
+				<form onSubmit={this.handleSubmit}>
+			        <label>
+			          Raise
+			          <input type="text" value={this.props.raiseValue} onChange={this.handleChange}/>
+			        </label>
+			        <input type="submit" value="Submit" />
+			      </form>
+
+				 <div onClick={this.props.allIn}><a>All In</a></div>
+				<div onClick={this.props.check}><a>Check</a></div>
 				
 				
 				

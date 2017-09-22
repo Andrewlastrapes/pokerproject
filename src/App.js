@@ -158,7 +158,8 @@ class App extends Component {
       river: [],
       phase: "preflop",
       pot: 0,
-      fold: []
+      fold: [],
+      raiseValue: 0
     }
   
 
@@ -302,6 +303,7 @@ class App extends Component {
   raise(){
  
    var newUsers = []
+   var raiser = []
    
     for (var i = 0; i < this.state.users.length; i++){
         newUsers.push(Object.assign({}, this.state.users[i]))
@@ -309,12 +311,14 @@ class App extends Component {
           newUsers[i].marker = false;
         }
         if (newUsers[i].isActive == true){
-    
-         newUsers[i].marker = true;
-         } 
         
-         // Need to write "all in"
+         newUsers[i].marker = true;
+         raiser = newUsers[i]
 
+         } 
+
+         this.state.pot = this.state.pot + this.props.raiseValue
+         raiser.stack = raiser.stack - this.props.raiseValue
         }
         
       
@@ -327,6 +331,16 @@ class App extends Component {
     this.nextTurn(newUsers, true)
 
   }
+
+    handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
+
+   handleChange(event) {
+    this.setState({raiseValue: event.target.value});
+  }
+
 
   fold(){
 
@@ -347,30 +361,28 @@ class App extends Component {
         
        }  
      }
-        // if (this.state.fold === this.state.users.length - 1){
         
         for (var i = 0; i < newUsers.length; i++){
           if (newUsers.length - this.state.fold.length === 1){
-          alert("Game Over");
-          this.state.fold = []
-          for (var i = 0; newUsers.length; i++){
-            if (newUsers[i].isActive == true){
-              newUsers[i].stack = this.state.pot + newUsers[i].stack 
-          }
+            if (newUsers[i].folded == false){
+              var winner = newUsers[i]
+              winner.stack = this.state.pot + winner.stack 
+              this.state.fold = []
+          // if (newUsers[i].folded == false){
+          //     newUsers[i].stack = this.state.pot + newUsers[i].stack 
+                this.setState({
+                   users: newUsers
+                  })
+                alert(winner.username + " wins " + "$ " + this.state.pot);
+                  break;
+                  }
+                 
         }
-      }
-
-        this.setState({
-          users: newUsers
-        })
-
-
-        break;
       
      }
 
       this.nextTurn(newUsers, false)
-      console.log(this.state.fold.length)
+      
 
       
     }
@@ -379,8 +391,22 @@ class App extends Component {
   
 
   flop(){
+       var newActive = 0
+       var oldActive = 0
+     
+     for (var i = 0; i < this.state.users.length; i++){
+        newUsers.push(Object.assign({}, this.state.users[i]))
+        
+        oldActive = i
+        newActive = i + 1 
+
+
+    }
+
+
     this.setState({
-      
+
+        users: newUsers
         flop: [this.state.deck.pop(), this.state.deck.pop(), this.state.deck.pop()]
       
     })
@@ -423,8 +449,8 @@ class App extends Component {
         <Options  deal={this.deal.bind(this)}
                   call ={this.call.bind(this)}
                   fold={this.fold.bind(this)}
-                  raise={this.raise.bind(this)}
-                  check={this.check.bind(this)}/>
+                  check={this.check.bind(this)}
+                  form={this.handleSubmit.bind(this)}/>
       
 
       </div>
