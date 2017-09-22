@@ -62,8 +62,8 @@ class App extends Component {
       clock : Date(),
       stack : 50,
       hand : [],
-      position : "Dealer",
-      isActive: false,
+      position : "",
+      isActive: true,
       folded: false,
       marker: false,
       bet: 0
@@ -73,7 +73,7 @@ class App extends Component {
       clock : Date(),
       stack : 50,
       hand : [],
-      position : "Small Blind",
+      position : "",
       isActive: false,
       folded: false,
       marker: false,
@@ -84,10 +84,10 @@ class App extends Component {
       clock : Date(),
       stack : 50,
       hand : [],
-      position : "Big Blind",
+      position : "",
       isActive: false,
       folded: false,
-      marker: true,
+      marker: false,
       bet: 0
       },
       {
@@ -96,7 +96,7 @@ class App extends Component {
       stack : 50,
       hand : [],
       position : "",
-      isActive: true,
+      isActive: false,
       folded: false,
       marker: false,
       bet: 0
@@ -117,7 +117,7 @@ class App extends Component {
       clock : Date(),
       stack : 50,
       hand : [],
-      position : "",
+      position : "Dealer",
       isActive: false,
       folded: false,
       marker: false,
@@ -128,7 +128,7 @@ class App extends Component {
       clock : Date(),
       stack : 50,
       hand : [],
-      position : "",
+      position : "Small Blind",
       isActive: false,
       folded: false,
       marker: false,
@@ -139,10 +139,10 @@ class App extends Component {
       clock : Date(),
       stack : 50,
       hand : [],
-      position : "",
+      position : "Big Blind",
       isActive: false,
       folded: false,
-      marker: false,
+      marker: true,
       bet: 0
       }
 
@@ -158,7 +158,7 @@ class App extends Component {
       river: [],
       phase: "preflop",
       pot: 0,
-      fold: 0
+      fold: []
     }
   
 
@@ -278,6 +278,7 @@ class App extends Component {
 
         caller.bet = marker.bet
         this.state.pot = this.state.pot + caller.bet
+        caller.stack = caller.stack - caller.bet
 
 
 
@@ -329,9 +330,10 @@ class App extends Component {
 
   fold(){
 
-
+   
    var newActive = []
    var newUsers = []
+   var fold = []
    
    
     for (var i = 0; i < this.state.users.length; i++){
@@ -340,27 +342,36 @@ class App extends Component {
          newUsers[i].folded = true;
       }
         if (newUsers[i].folded === true){
-        this.state.fold = this.state.fold + 1
+        fold.push(newUsers[i])
+        this.state.fold = fold
         
        }  
-        if (this.state.fold === this.state.users.length - 1){
-        alert("Game Over");
-        this.state.fold = 0
-        for (var i = 0; newUsers.length; i++){
-          if (newUsers[i].isActive == true){
-            newUsers[i].stack = this.state.pot + newUsers[i].stack 
+     }
+        // if (this.state.fold === this.state.users.length - 1){
+        
+        for (var i = 0; i < newUsers.length; i++){
+          if (newUsers.length - this.state.fold.length === 1){
+          alert("Game Over");
+          this.state.fold = []
+          for (var i = 0; newUsers.length; i++){
+            if (newUsers[i].isActive == true){
+              newUsers[i].stack = this.state.pot + newUsers[i].stack 
           }
         }
+      }
+
         this.setState({
           users: newUsers
         })
 
 
         break;
-      }
+      
      }
 
       this.nextTurn(newUsers, false)
+      console.log(this.state.fold.length)
+
       
     }
        

@@ -16,6 +16,8 @@ class Options extends Component{
 				<div onClick={this.props.call}><a href="#">Call</a></div>
 				<div onClick={this.props.fold}><a href="#">Fold</a></div>
 				<div onClick={this.props.raise}><a href="#">Raise</a></div>
+				<input type="text" raise="raise"/>
+				 <input type="submit" value="Submit" />
 				<div onClick={this.props.check}><a href="#">Check</a></div>
 				
 				

@@ -8,12 +8,7 @@ class User extends Component {
     super(props)
 
 }
-    // active(){
-    // 	if (this.props.player.isActive == true) {
-    // 	return(<h2 className="highlighted">Hi</h2>)
-    // 	}
-    // }
-
+   
 
 
 render(){
@@ -29,8 +24,9 @@ render(){
 
 	return(
 
-		// <div className="user">
+		
 		<div className={this.props.player.isActive ? "highlighted" : "User"}>
+			
 
 			<h4>{this.props.player.username}</h4>
 			<h6>{array}</h6>
@@ -42,7 +38,7 @@ render(){
 			
 
 
-
+			
 		</div>
 		)
 }
