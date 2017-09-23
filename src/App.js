@@ -107,7 +107,7 @@ var socket = new io("http://localhost:3001")
       clock : Date(),
       stack : 50,
       hand : [],
-      position : "",
+      position : "firstAfterPhase",
       isActive: false,
       folded: false,
       marker: false,
@@ -223,54 +223,93 @@ var socket = new io("http://localhost:3001")
       while(newUsers[newActive].folded == true){
         newActive++
       }
+     
       newUsers[newActive].isActive = true
       
       if(newUsers[oldActive].marker == true && preventsPhaseChange == false) {
         
+      
+
         if(this.state.phase == "preflop"){
           this.flop()
           newPhase = "flop"
+          var firstToAct = 0
          for (var i = 0; i < newUsers.length; i++){
+            if (newUsers[i].position === "firstAfterPhase"){
+              firstToAct = i
+            }
             if(newUsers[i].isActive === true){
-              newUsers[i].isActive= false;
+              newUsers[i].isActive = false;
             }
-            if(newUsers[i].position==="Dealer"){
-              newUsers[i - 1].isActive = true; 
+          }
+        
+          for (var i = firstToAct;  i >= 0; i-- ){
+            if(newUsers[i].folded === false){
+              newUsers[i].isActive = true;
+              break;
+              }
             }
-         }
+          }
+           
          
-      
-         }
         if(this.state.phase == "flop"){
           this.turn()
           newPhase = "turn"
-            for (var i = 0; i < newUsers.length; i++){
+           for (var i = 0; i < newUsers.length; i++){
+            if (newUsers[i].position === "firstAfterPhase"){
+              firstToAct = i
+            }
             if(newUsers[i].isActive === true){
-              newUsers[i].isActive= false;
+              newUsers[i].isActive = false;
             }
-            if(newUsers[i].position==="Dealer"){
-              newUsers[i - 1].isActive = true; 
+          }
+        
+          var folds = 0
+          for (var i = firstToAct;  i >= 0; i--){
+            if(newUsers[i].folded === false){
+              newUsers[i].isActive = true;
+              break;
+              } else {
+                folds = folds + 1
+              }
+
             }
-         }
+            if (newUsers.length === folds - 3){
+              for (var i = 0; i < newUsers.length; i++){
+                  if (newUsers[i].position === "firstAfterPhase"){
+                    if (newUsers[i + 1].folded === false){
+                      newUsers[i].isActive = true
+                    } else {
+                      newUsers[i + 2].isActive = true;
+                    }
+              }
+            }
           
-         
         }
+      }
+        
+
          if(this.state.phase == "turn"){
           this.river()
           newPhase = "river"
-            for (var i = 0; i < newUsers.length; i++){
+          } 
+           for (var i = 0; i < newUsers.length; i++){
+            if (newUsers[i].position === "firstAfterPhase"){
+              firstToAct = i
+            }
             if(newUsers[i].isActive === true){
-              newUsers[i].isActive= false;
+              newUsers[i].isActive = false;
             }
-            if(newUsers[i].position==="Dealer"){
-              newUsers[i - 1].isActive = true; 
+          }
+        
+          for (var i = firstToAct;  i >= 0; i-- ){
+            if(newUsers[i].folded === false){
+              newUsers[i].isActive = true;
+              break;
+              }
             }
-         }
-          
-          
-        } 
-      }
-    
+      
+    }
 
 
 
