@@ -230,23 +230,49 @@ var socket = new io("http://localhost:3001")
         if(this.state.phase == "preflop"){
           this.flop()
           newPhase = "flop"
+         for (var i = 0; i < newUsers.length; i++){
+            if(newUsers[i].isActive === true){
+              newUsers[i].isActive= false;
+            }
+            if(newUsers[i].position==="Dealer"){
+              newUsers[i - 1].isActive = true; 
+            }
+         }
          
       
          }
         if(this.state.phase == "flop"){
           this.turn()
           newPhase = "turn"
+            for (var i = 0; i < newUsers.length; i++){
+            if(newUsers[i].isActive === true){
+              newUsers[i].isActive= false;
+            }
+            if(newUsers[i].position==="Dealer"){
+              newUsers[i - 1].isActive = true; 
+            }
+         }
           
          
         }
          if(this.state.phase == "turn"){
           this.river()
           newPhase = "river"
+            for (var i = 0; i < newUsers.length; i++){
+            if(newUsers[i].isActive === true){
+              newUsers[i].isActive= false;
+            }
+            if(newUsers[i].position==="Dealer"){
+              newUsers[i - 1].isActive = true; 
+            }
+         }
           
           
         } 
       }
     
+
+
 
       this.setState({
         users: newUsers, 
@@ -415,24 +441,11 @@ var socket = new io("http://localhost:3001")
   
 
   flop(){
-       var newActive = 0
-       var oldActive = 0
-       var newUsers = []
-     
-     for (var i = 0; i < this.state.users.length; i++){
-        newUsers.push(Object.assign({}, this.state.users[i]))
-        oldActive = i
-        
-         newActive = i + 1 
-        
-
-
-    }
 
 
     this.setState({
 
-        users: newUsers,
+       
         flop: [this.state.deck.pop(), this.state.deck.pop(), this.state.deck.pop()]
       
     })

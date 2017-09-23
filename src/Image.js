@@ -14,12 +14,12 @@ class Image extends Component{
 
 render(){
 		
-	var cardImage = "/cardImages/" + this.props.number + this.props.suit + ".png";
+	var cardImage = "/cardImages/" + this.props.number + "_" + "of" + "_" + this.props.suit + ".png";
 
 	return(
 		<div className="image">
 			
-			<div><img src={cardImage} height="40"></img></div>
+			<div><img src={cardImage} height="80"></img></div>
 			
 
 		</div>

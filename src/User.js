@@ -15,9 +15,9 @@ render(){
 	var array = []
 	// Everytime a for loop has jsx, add a key property.
 	for (var i = 0; i < this.props.player.hand.length; i++){
-		array.push(<Card key={i} 
+		array.push(<div className="col-xs-2"><Card key={i} 
 						number={this.props.player.hand[i].number}
-						 suit={this.props.player.hand[i].suit}/>)			
+						 suit={this.props.player.hand[i].suit}/></div>)			
 	}
 
 	var active = ""
