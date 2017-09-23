@@ -204,6 +204,7 @@ var socket = new io("http://localhost:3001")
        var newPhase = this.state.phase
        var newActive = 0
        var oldActive = 0
+       var skip = false
        
    
     for (var i = 0; i < newUsers.length; i++){
@@ -229,87 +230,148 @@ var socket = new io("http://localhost:3001")
       if(newUsers[oldActive].marker == true && preventsPhaseChange == false) {
         
       
-
+        
         if(this.state.phase == "preflop"){
           this.flop()
+         
           newPhase = "flop"
+         
+          var folds = 0
           var firstToAct = 0
+          var pass = false
+         
          for (var i = 0; i < newUsers.length; i++){
             if (newUsers[i].position === "firstAfterPhase"){
               firstToAct = i
             }
             if(newUsers[i].isActive === true){
               newUsers[i].isActive = false;
+              
             }
           }
         
           for (var i = firstToAct;  i >= 0; i-- ){
             if(newUsers[i].folded === false){
               newUsers[i].isActive = true;
-              break;
-              }
-            }
-          }
-           
-         
-        if(this.state.phase == "flop"){
-          this.turn()
-          newPhase = "turn"
-           for (var i = 0; i < newUsers.length; i++){
-            if (newUsers[i].position === "firstAfterPhase"){
-              firstToAct = i
-            }
-            if(newUsers[i].isActive === true){
-              newUsers[i].isActive = false;
-            }
-          }
-        
-          var folds = 0
-          for (var i = firstToAct;  i >= 0; i--){
-            if(newUsers[i].folded === false){
-              newUsers[i].isActive = true;
+              pass = true;
               break;
               } else {
                 folds = folds + 1
               }
-
             }
-            if (newUsers.length === folds - 3){
-              for (var i = 0; i < newUsers.length; i++){
+      
+            if (pass === false){
+              if (newUsers.length - 3 === folds){
+                for (var i = 0; i < newUsers.length; i++){
                   if (newUsers[i].position === "firstAfterPhase"){
                     if (newUsers[i + 1].folded === false){
-                      newUsers[i].isActive = true
-                    } else {
-                      newUsers[i + 2].isActive = true;
-                    }
+                      newUsers[i + 1].isActive = true
+                      } else {
+                          newUsers[i + 2].isActive = true;
+                              }
+                         }  
+                        }
+                     }  
+                    }    
+
+                skip = true
+
+          } 
+
+
+        if (skip === false){
+
+          if (this.state.phase == "flop"){
+            this.turn()
+            
+            newPhase = "turn"
+
+
+            var folds = 0
+            var firstToAct = 0
+            var pass = false
+
+             for (var i = 0; i < newUsers.length; i++){
+              if (newUsers[i].position === "firstAfterPhase"){
+                firstToAct = i
+              }
+              if(newUsers[i].isActive === true){
+                newUsers[i].isActive = false;
               }
             }
           
-        }
-      }
-        
+           
+            
 
-         if(this.state.phase == "turn"){
-          this.river()
-          newPhase = "river"
+            for (var i = firstToAct;  i >= 0; i--){
+              if(newUsers[i].folded === false){
+                newUsers[i].isActive = true;
+                var pass = true;
+                break;
+                } else {
+                  folds = folds + 1
+                }
+              }
+               if (pass === false){
+                if (newUsers.length === folds - 3){
+                  for (var i = 0; i < newUsers.length; i++){
+                    if (newUsers[i].position === "firstAfterPhase"){
+                      if (newUsers[i + 1].folded === false){
+                        newUsers[i + 1].isActive = true
+                        } else {
+                            newUsers[i + 2].isActive = true;
+                                }
+                           }  
+                          }
+                       }  
+                      }    
           } 
-           for (var i = 0; i < newUsers.length; i++){
-            if (newUsers[i].position === "firstAfterPhase"){
-              firstToAct = i
-            }
-            if(newUsers[i].isActive === true){
-              newUsers[i].isActive = false;
-            }
-          }
-        
-          for (var i = firstToAct;  i >= 0; i-- ){
-            if(newUsers[i].folded === false){
-              newUsers[i].isActive = true;
-              break;
+
+            skip = true;
+      }
+
+
+      if (skip === false){
+          if(this.state.phase == "turn"){
+            this.river()
+            newPhase = "river"
+            } 
+             for (var i = 0; i < newUsers.length; i++){
+              if (newUsers[i].position === "firstAfterPhase"){
+                firstToAct = i
+              }
+              if(newUsers[i].isActive === true){
+                newUsers[i].isActive = false;
               }
             }
-      
-    }
+          
+            for (var i = firstToAct;  i >= 0; i-- ){
+              if(newUsers[i].folded === false){
+                newUsers[i].isActive = true;
+                break;
+                } else {
+                  folds = folds + 1
+                }
+              }
+               if (pass === false){
+                if (newUsers.length === folds - 3){
+                  for (var i = 0; i < newUsers.length; i++){
+                    if (newUsers[i].position === "firstAfterPhase"){
+                      if (newUsers[i + 1].folded === false){
+                        newUsers[i + 1].isActive = true
+                        } else {
+                            newUsers[i + 2].isActive = true;
+                                }
+                           }  
+                          }
+                       }  
+                      }    
+          } 
+
+            skip = true;
+              }
+        
+       
 
 
 
