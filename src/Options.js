@@ -7,12 +7,17 @@ class Options extends Component{
 		super(props)
 
 	}
+	
+
 	render(){
+
+		var numUsers = this.props.players.length
+
 		return(
 			<div className="options">
 				
 
-				<div onClick={this.props.deal}><a>Deal</a></div>
+				{numUsers === 1 ? "" : <div onClick={this.props.deal}><a>Deal</a></div>}
 				<div onClick={this.props.call}><a>Call</a></div>
 				<div onClick={this.props.fold}><a>Fold</a></div>
 				

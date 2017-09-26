@@ -18,7 +18,7 @@ class App extends Component {
 
   this.socket.on("newState", (newState) => {
     this.setState(newState)
-    console.log("ihasdfh")
+  console.log(newState)
 
   });
 
@@ -45,7 +45,7 @@ class App extends Component {
 
 
   deal(){
-   
+  
     this.socket.emit("Dealing")
    
   }
@@ -166,7 +166,8 @@ class App extends Component {
                   fold={this.fold.bind(this)}
                   check={this.check.bind(this)}
                   handleSubmit={this.handleSubmit.bind(this)}
-                  handleChange={this.handleChange.bind(this)}/>
+                  handleChange={this.handleChange.bind(this)}
+                  players={this.state.users}/>
       
 
       </div>
