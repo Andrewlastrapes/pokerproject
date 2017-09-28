@@ -47,7 +47,7 @@ class App extends Component {
   deal(){
   
     this.socket.emit("Dealing")
-   
+   console.log(this.state.users)
   }
 
 
@@ -57,6 +57,7 @@ class App extends Component {
   call(){
 
       this.socket.emit("Call")
+
       
       }
 
@@ -150,7 +151,7 @@ class App extends Component {
     return (
       <div className="App">
 
-        <Image />
+        
 
         <Table players={this.state.users}
                flop={this.state.flop}
