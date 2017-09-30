@@ -32,10 +32,11 @@ class App extends Component {
       flop: [],
       turn: [],
       river: [],
-      phase: "preflop",
+      phase: "Game Over",
       pot: 0,
       fold: [],
-      raiseValue: 0
+      raiseValue: 0,
+
     }
   
 
@@ -82,6 +83,10 @@ class App extends Component {
 
     }
 
+  reset(){
+    this.socket.emit("Reset")
+  }
+
 
   handleSubmit(event) {
     event.preventDefault();
@@ -114,35 +119,6 @@ class App extends Component {
 
 
   
-       
-  
-  // resetHand(){
-    
-    
-  //   var newUsers = []
-
-  //   for (var i = 0; i < this.state.users.length; i++){
-  //       newUsers.push(Object.assign({}, this.state.users[i]))
-        
-  //       if (newUsers[i].bet > 0){
-  //        newUsers[i].bet = 0;
-  //   }
-  //       if (newUsers[i].position === "Big Blind"){
-  //         newUsers[i + 1].position ==="Big Blind"
-  //       }
-  //       if (newUsers[i].position === "Small Blind"){
-  //         newUsers[i + 1].position ==="Small Blind"
-  //       }
-  //       if (newUsers[i].position === "Dealer"){
-  //         newUsers[i + 1].position ==="Dealer"
-  //       }
-  //       if (newUsers[i].position === "firstAfterPhase"){
-  //         newUsers[i + 1].position ==="firstAfterPhase"
-  //       }
-  //          }
-  
-
-  //       }
   
 
   render() {
@@ -168,8 +144,10 @@ class App extends Component {
                   check={this.check.bind(this)}
                   handleSubmit={this.handleSubmit.bind(this)}
                   handleChange={this.handleChange.bind(this)}
-                  players={this.state.users}/>
+                  players={this.state.users}
+                  phase={this.state.phase}/>
       
+      {this.state.phase}
 
       </div>
     );
