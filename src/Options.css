@@ -1,12 +1,18 @@
+
+@import url('https://fonts.googleapis.com/css?family=Londrina+Solid');
+
 .options {
 	
 	margin-left: 43%;
-	margin-top: 10%;
-	background-color: black;
-	width: 100px;
+	
+	background-color: #bdcebe;
+	width: 200px;
 
 }
 
-a {
-	color: white;
+button {
+	
+	background-color: #d6cbd3;
+
+
 }

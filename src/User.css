@@ -1,3 +1,6 @@
-.user {
+@import url('https://fonts.googleapis.com/css?family=Londrina+Solid');
+
+.User {
 	color: black;
+	font-family: 'Londrina Solid', cursive;
 }

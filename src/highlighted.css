@@ -1,4 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Londrina+Solid');
+
+
 .highlighted {
 	color: red;
 	font-size: 2em;
+	font-family: 'Londrina Solid', cursive;
 }

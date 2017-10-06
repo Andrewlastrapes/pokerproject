@@ -36,7 +36,8 @@ render(){
 			<h6>{this.props.player.stack}</h6>
 			<h6>{this.props.player.position}</h6>
 			<h6>{this.props.player.bet}</h6>
-			<h6>{this.props.phase}</h6>
+			
+
 			
 			
 

@@ -9,6 +9,7 @@ import io from "socket.io-client"
 
 
 
+
 class App extends Component {
   constructor(props){
     super(props)
@@ -18,7 +19,7 @@ class App extends Component {
 
   this.socket.on("newState", (newState) => {
     this.setState(newState)
-  console.log(newState)
+
 
   });
 
@@ -48,7 +49,7 @@ class App extends Component {
   deal(){
   
     this.socket.emit("Dealing")
-   console.log(this.state.users)
+  
   }
 
 
@@ -72,7 +73,7 @@ class App extends Component {
 
   raise(){
   
-  this.socket.emit("Raise", parseInt(this.state.raiseValue))
+  this.socket.emit("Raise", parseFloat(this.state.raiseValue))
 
 
   }
@@ -83,27 +84,33 @@ class App extends Component {
 
     }
 
-  reset(){
-    this.socket.emit("Reset")
-  }
+ 
 
 
   handleSubmit(event) {
     event.preventDefault();
     var markerUser = []
+    var RmarkerUser = []
 
     for (var i = 0; i < this.state.users.length; i++){
           if (this.state.users[i].marker === true){
             markerUser = this.state.users[i]
           }
        }
+      for (var i = 0; i < this.state.users.length; i++){
+          if (this.state.users[i].Rmarker === true){
+            RmarkerUser = this.state.users[i]
+          }
+       }
+
        
     var isNumber = parseInt(this.state.raiseValue)
 
     var isDoubleMarker = parseInt(this.state.raiseValue) >= markerUser.bet * 2 
+    var isDoubleRMarker = parseInt(this.state.raiseValue) >= RmarkerUser.bet * 2 
 
 
-    if (isNumber && isDoubleMarker){
+    if (isNumber && (isDoubleMarker || isDoubleRMarker)){
         this.raise()
       } else {
         alert("Please enter valid number")
@@ -128,7 +135,7 @@ class App extends Component {
       <div className="App">
 
         
-
+     
         <Table players={this.state.users}
                flop={this.state.flop}
                turn={this.state.turn}
@@ -136,7 +143,7 @@ class App extends Component {
                phase={this.state.phase}
                pot = {this.state.pot}/>
 
-
+      <div className="optionsBox">
         
         <Options  deal={this.deal.bind(this)}
                   call ={this.call.bind(this)}
@@ -146,8 +153,7 @@ class App extends Component {
                   handleChange={this.handleChange.bind(this)}
                   players={this.state.users}
                   phase={this.state.phase}/>
-      
-      {this.state.phase}
+        </div>
 
       </div>
     );

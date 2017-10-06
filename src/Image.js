@@ -15,7 +15,8 @@ class Image extends Component{
 render(){
 		
 	var cardImage = "/cardImages/" + this.props.number + "_" + "of" + "_" + this.props.suit + ".png";
-
+	var backOfCard = "/cardImages/back.png"
+	
 	return(
 		<div className="image">
 			

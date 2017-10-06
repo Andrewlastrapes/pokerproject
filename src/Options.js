@@ -51,13 +51,13 @@ class Options extends Component{
 			<div className="options">
 				
 				
-				{numUsers > 1 && this.props.phase === "Game Over" ? <div onClick={this.props.deal}><a>Deal</a></div> : ""}  
+				{numUsers > 1 && this.props.phase === "Game Over" ? <div onClick={this.props.deal}><button>Deal</button></div> : ""}  
 				
-				{activeUser.bet < marker.bet || activeUser.bet < Rmarker.bet ?<div onClick={this.props.call}><a>Call</a></div> : ""}
+				{activeUser.bet < marker.bet || activeUser.bet < Rmarker.bet ?<div onClick={this.props.call}><button>Call</button></div> : ""}
 				
-				{activeUser.bet < marker.bet || activeUser.bet < Rmarker.bet ? <div onClick={this.props.fold}><a>Fold</a></div> : ""} 
+				{activeUser.bet < marker.bet || activeUser.bet < Rmarker.bet ? <div onClick={this.props.fold}><button>Fold</button></div> : ""} 
 				
-				{activeUser.bet === marker.bet || activeUser.bet === marker.bet ? <div onClick={this.props.check}><a>Check</a></div> : ""}
+				{activeUser.bet === marker.bet || activeUser.bet === marker.bet ? <div onClick={this.props.check}><button>Check</button></div> : ""}
 				
 				{this.props.phase === "Game Over" ? "" :<form onSubmit={this.props.handleSubmit}>
 			       
@@ -65,7 +65,7 @@ class Options extends Component{
 				        <button type="submit" value="Submit">Raise</button>
 				      </form>}
 
-				 {this.props.phase === "Game Over" ? "" : <div onClick={this.props.allIn}><a>All In</a></div>}
+				 
 				
 				
 				
