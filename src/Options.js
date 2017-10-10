@@ -7,7 +7,8 @@ class Options extends Component{
 		super(props)
 
 	}
-	
+
+
 
 	render(){
 		
@@ -45,21 +46,25 @@ class Options extends Component{
 
 		
 		var numUsers = this.props.players.length
+		var isActiveUser = this.props.socketid === activeUser.socketID
 		
 
 	return(
 			<div className="options">
+
 				
-				
+
 				{numUsers > 1 && this.props.phase === "Game Over" ? <div onClick={this.props.deal}><button>Deal</button></div> : ""}  
 				
-				{activeUser.bet < marker.bet || activeUser.bet < Rmarker.bet ?<div onClick={this.props.call}><button>Call</button></div> : ""}
 				
-				{activeUser.bet < marker.bet || activeUser.bet < Rmarker.bet ? <div onClick={this.props.fold}><button>Fold</button></div> : ""} 
+
+				{isActiveUser === true && (activeUser.bet < marker.bet || activeUser.bet < Rmarker.bet) ?<div onClick={this.props.call}><button>Call</button></div> : ""}
 				
-				{activeUser.bet === marker.bet || activeUser.bet === marker.bet ? <div onClick={this.props.check}><button>Check</button></div> : ""}
+				{isActiveUser === true && (activeUser.bet < marker.bet || activeUser.bet < Rmarker.bet) ? <div onClick={this.props.fold}><button>Fold</button></div> : ""} 
 				
-				{this.props.phase === "Game Over" ? "" :<form onSubmit={this.props.handleSubmit}>
+				{isActiveUser === true && (activeUser.bet === marker.bet || activeUser.bet === marker.bet) ? <div onClick={this.props.check}><button>Check</button></div> : ""}
+				
+				{isActiveUser === false || this.props.phase === "Game Over" ? "" :<form onSubmit={this.props.handleSubmit}>
 			       
 				        <input type="text" value={this.props.raiseValue} onChange={this.props.handleChange}/>
 				        <button type="submit" value="Submit">Raise</button>

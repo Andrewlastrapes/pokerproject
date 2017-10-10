@@ -17,7 +17,8 @@ class Table extends Component{
 		var array = []
 
 		for (var i = 0; i < this.props.players.length; i++){
-			array.push(<User player={this.props.players[i]} />)
+			array.push(<User player={this.props.players[i]}
+							 clientSocketID={this.props.socketid} />)
 		}
 
 

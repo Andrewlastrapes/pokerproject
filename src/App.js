@@ -15,13 +15,19 @@ class App extends Component {
     super(props)
    
   this.socket = new io("http://localhost:3001")
-
+ 
 
   this.socket.on("newState", (newState) => {
     this.setState(newState)
 
 
   });
+
+  this.socket.on("socket id", (socketid) => {
+    this.setState({
+      socketid: socketid
+    })
+  })
 
 
 
@@ -141,7 +147,11 @@ class App extends Component {
                turn={this.state.turn}
                river={this.state.river}
                phase={this.state.phase}
-               pot = {this.state.pot}/>
+               pot={this.state.pot}
+               socketid={this.state.socketid}/>
+
+        {this.state.phase === "Game Over" ? this.state.winner : ""}
+
 
       <div className="optionsBox">
         
@@ -152,8 +162,12 @@ class App extends Component {
                   handleSubmit={this.handleSubmit.bind(this)}
                   handleChange={this.handleChange.bind(this)}
                   players={this.state.users}
-                  phase={this.state.phase}/>
+                  phase={this.state.phase}
+                  socketid={this.state.socketid}/>
         </div>
+
+
+      
 
       </div>
     );

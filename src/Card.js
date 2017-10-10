@@ -17,7 +17,8 @@ render(){
 			
 
 			 <Image number={this.props.number}
-			 		suit={this.props.suit}/>
+			 		suit={this.props.suit}
+			 		shouldShow={this.props.shouldShow}/>
 			
 
 		</div>
