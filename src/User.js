@@ -16,7 +16,10 @@ render(){
 	var array = []
 	// Everytime a for loop has jsx, add a key property.
 	
-	var shouldShow = this.props.clientSocketID === this.props.player.socketID
+	
+
+
+	var shouldShow = (this.props.clientSocketID === this.props.player.socketID) 
 
 	for (var i = 0; i < this.props.player.hand.length; i++){
 		array.push(<div key={i} className="col-xs-2"><Card 
@@ -25,10 +28,6 @@ render(){
 						 shouldShow={shouldShow}/></div>)			
 	}
 
-	var active = ""
-	var folded = ""
-	var inGame = ""
-	
 
 
 	return(

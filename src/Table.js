@@ -18,7 +18,11 @@ class Table extends Component{
 
 		for (var i = 0; i < this.props.players.length; i++){
 			array.push(<User player={this.props.players[i]}
-							 clientSocketID={this.props.socketid} />)
+							 clientSocketID={this.props.socketid}
+							 flop={this.props.flop}
+							 turn={this.props.turn}
+							 river={this.props.river}/>)
+
 		}
 
 
@@ -45,7 +49,10 @@ class Table extends Component{
 				<Board className="board"flop={this.props.flop}
 										turn={this.props.turn}
 										river={this.props.river}
-										pot={this.props.pot}/>
+										pot={this.props.pot}
+										phase={this.props.phase}
+										players={this.props.players}
+										handNumber={this.props.handNumber}/>
 				
 
 				</div>

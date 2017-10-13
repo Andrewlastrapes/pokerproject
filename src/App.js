@@ -43,6 +43,8 @@ class App extends Component {
       pot: 0,
       fold: [],
       raiseValue: 0,
+      handNumber: 0
+
 
     }
   
@@ -147,8 +149,9 @@ class App extends Component {
                turn={this.state.turn}
                river={this.state.river}
                phase={this.state.phase}
-               pot={this.state.pot}
-               socketid={this.state.socketid}/>
+               pot={this.state.pot.toFixed(2)}
+               socketid={this.state.socketid}
+               handNumber={this.state.handNumber}/>
 
         {this.state.phase === "Game Over" ? this.state.winner : ""}
 
