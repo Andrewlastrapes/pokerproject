@@ -2,26 +2,26 @@
 @import url('https://fonts.googleapis.com/css?family=Londrina+Solid');
 
 
-@media (min-width: 1200px){
+@media (min-width: 1400px){
 
 .board {
 	position: absolute;
-	top: 200px;
-	left: 450px;
+	top: 50%;
+	left: 35%;
 	color: black;
 	font-family: 'Londrina Solid', cursive;
 	font-size: 3em;
 }
 
 #tableImage {
-	width: 100%;
-	height: auto;
+	width: 1200px;
+	height: 600px;
 	}
 
 
 .User1 {
 	position: absolute;
-	top: 10%;
+	top: 13%;
 	left: 10%
 	
 	}
@@ -29,45 +29,264 @@
 
 .User2{
 	position: absolute;
-	top: 5%;
-	left: 35%;
+	top: 10%;
+	left: 31%;
 	}
 
 
 .User3 {
 	position: absolute;
-	top: 5%;
-	right: 25%;
+	top: 10%;
+	right: 31%;
 	}
 
 .User4 {
 	position: absolute;
-	top: 10%;
-	right: 3%;
+	top: 15%;
+	right: 10%;
 	}
 
 .User8 {
 	position: absolute;
-	top: 85%;
-	left: 15%;
+	bottom: 13%;
+	left: 14%;
 	}
 
 .User7 {
 	position: absolute;
-	top: 95%;
-	left: 25%;
+	bottom: 10%;
+	left: 31%;
 	}
 
 .User6 {
 	position: absolute;
-	top: 95%;
-	right: 25%;
+	bottom: 10%;
+	right: 31%;
 	}
 
 .User5 {
 	position: absolute;
-	top: 65%;
-	right: 3%;
+	bottom: 13%;
+	right: 14%;
 
 	}
 }
+
+
+
+@media (min-width: 1300px){
+
+.board {
+	position: absolute;
+	top: 50%;
+	left: 35%;
+	color: black;
+	font-family: 'Londrina Solid', cursive;
+	font-size: 3em;
+}
+
+#tableImage {
+	width: 1200px;
+	height: 600px;
+	}
+
+
+.User1 {
+	position: absolute;
+	top: 13%;
+	left: 10%
+	
+	}
+
+
+.User2{
+	position: absolute;
+	top: 10%;
+	left: 31%;
+	}
+
+
+.User3 {
+	position: absolute;
+	top: 10%;
+	right: 31%;
+	}
+
+.User4 {
+	position: absolute;
+	top: 15%;
+	right: 10%;
+	}
+
+.User8 {
+	position: absolute;
+	bottom: 13%;
+	left: 14%;
+	}
+
+.User7 {
+	position: absolute;
+	bottom: 10%;
+	left: 31%;
+	}
+
+.User6 {
+	position: absolute;
+	bottom: 10%;
+	right: 31%;
+	}
+
+.User5 {
+	position: absolute;
+	bottom: 13%;
+	right: 14%;
+
+	}
+}
+
+@media (min-width: 1200px){
+
+.board {
+	position: absolute;
+	top: 50%;
+	left: 35%;
+	color: black;
+	font-family: 'Londrina Solid', cursive;
+	font-size: 3em;
+}
+
+#tableImage {
+	width: 1200px;
+	height: 600px;
+	}
+
+
+.User1 {
+	position: absolute;
+	top: 13%;
+	left: 10%
+	
+	}
+
+
+.User2{
+	position: absolute;
+	top: 10%;
+	left: 31%;
+	}
+
+
+.User3 {
+	position: absolute;
+	top: 10%;
+	right: 21%;
+	}
+
+.User4 {
+	position: absolute;
+	top: 15%;
+	right: 5%;
+	}
+
+.User8 {
+	position: absolute;
+	bottom: 13%;
+	left: 10%;
+	}
+
+.User7 {
+	position: absolute;
+	bottom: 10%;
+	left: 30%;
+	}
+
+.User6 {
+	position: absolute;
+	bottom: 10%;
+	right: 27%;
+	}
+
+.User5 {
+	position: absolute;
+	bottom: 13%;
+	right: 7%;
+
+	}
+}
+
+@media (min-width: 1100px){
+
+.board {
+	position: absolute;
+	top: 50%;
+	left: 35%;
+	color: black;
+	font-family: 'Londrina Solid', cursive;
+	font-size: 3em;
+}
+
+#tableImage {
+	width: 1100px;
+	height: 550px;
+	}
+
+
+.User1 {
+	position: absolute;
+	top: 13%;
+	left: 10%
+	
+	}
+
+
+.User2{
+	position: absolute;
+	top: 10%;
+	left: 31%;
+	}
+
+
+.User3 {
+	position: absolute;
+	top: 10%;
+	right: 21%;
+	}
+
+.User4 {
+	position: absolute;
+	top: 15%;
+	right: 5%;
+	}
+
+.User8 {
+	position: absolute;
+	bottom: 13%;
+	left: 10%;
+	}
+
+.User7 {
+	position: absolute;
+	bottom: 10%;
+	left: 30%;
+	}
+
+.User6 {
+	position: absolute;
+	bottom: 10%;
+	right: 27%;
+	}
+
+.User5 {
+	position: absolute;
+	bottom: 13%;
+	right: 7%;
+
+	}
+}
+
+
+
+
+
+
+

@@ -20,7 +20,7 @@ render(){
 	return(
 		<div className="image">
 			
-			<div><img src={this.props.shouldShow ? cardImage : backOfCard} height="80"></img></div>
+			<div><img src={this.props.shouldShow ? cardImage : backOfCard}></img></div>
 			
 
 		</div>
