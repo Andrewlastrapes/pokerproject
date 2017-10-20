@@ -1,6 +1,9 @@
 
 @import url('https://fonts.googleapis.com/css?family=Londrina+Solid');
 
+
+@media (min-width: 1200px){
+
 .board {
 	position: absolute;
 	top: 200px;
@@ -13,57 +16,58 @@
 #tableImage {
 	width: 100%;
 	height: auto;
-}
+	}
 
 
 .User1 {
 	position: absolute;
-	top: 60px;
-	left: 175px;
+	top: 10%;
+	left: 10%
 	
-}
+	}
 
 
 .User2{
 	position: absolute;
-	top: 5px;
-	left: 425px;
-}
+	top: 5%;
+	left: 35%;
+	}
 
 
 .User3 {
 	position: absolute;
-	top: 5px;
-	right: 400px;
-}
+	top: 5%;
+	right: 25%;
+	}
 
 .User4 {
 	position: absolute;
-	top: 70px;
-	right: 150px;
-}
+	top: 10%;
+	right: 3%;
+	}
 
 .User8 {
 	position: absolute;
-	top: 400px;
-	left: 200px;
-}
+	top: 85%;
+	left: 15%;
+	}
 
 .User7 {
 	position: absolute;
-	top: 450px;
-	left: 420px;
-}
+	top: 95%;
+	left: 25%;
+	}
 
 .User6 {
 	position: absolute;
-	top: 450px;
-	right: 400px;
-}
+	top: 95%;
+	right: 25%;
+	}
 
 .User5 {
 	position: absolute;
-	top: 400px;
-	right: 225px;
+	top: 65%;
+	right: 3%;
 
+	}
 }
