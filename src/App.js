@@ -6,15 +6,25 @@ import Image from "./Image.js"
 import io from "socket.io-client"
 
 
-
+function serialize(obj){
+  var str = [];
+  for(var p in obj)
+    if (obj.hasOwnProperty(p)) {
+      str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+    }
+  return str.join("&");
+}
 
 
 
 class App extends Component {
   constructor(props){
     super(props)
-   
-  this.socket = new io("http://localhost:3001")
+
+
+  
+   console.log(window.location)
+  this.socket = new io(window.location.protocol + "//" + window.location.host, {query: serialize(window.user)})
  
 
   this.socket.on("newState", (newState) => {
@@ -44,6 +54,8 @@ class App extends Component {
       fold: [],
       raiseValue: 0,
       handNumber: 0
+    
+     
 
 
     }
@@ -57,6 +69,7 @@ class App extends Component {
   deal(){
   
     this.socket.emit("Dealing")
+
   
   }
 
@@ -67,6 +80,7 @@ class App extends Component {
   call(){
 
       this.socket.emit("Call")
+
 
       
       }
@@ -91,6 +105,7 @@ class App extends Component {
    this.socket.emit("Fold")
 
     }
+
 
  
 
@@ -142,7 +157,10 @@ class App extends Component {
     return (
       <div className="App">
 
-        
+       
+
+
+      
      
         <Table players={this.state.users}
                flop={this.state.flop}
@@ -153,7 +171,8 @@ class App extends Component {
                socketid={this.state.socketid}
                handNumber={this.state.handNumber}/>
 
-        {this.state.phase === "Game Over" ? this.state.winner : ""}
+     
+
 
 
       <div className="optionsBox">

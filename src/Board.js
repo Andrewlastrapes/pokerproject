@@ -44,7 +44,7 @@ class Board extends Component{
 			<div className="board">
 				
 				
-				<div>{this.props.phase === "Game Over" && this.props.handNumber > 0 ? this.props.players.username + " wins " + this.props.pot : ""}</div>
+				
 				
 
 				<div className="container">

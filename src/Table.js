@@ -33,7 +33,7 @@ class Table extends Component{
 			<div className="table">
 
 				
-				<img src="/cardImages/table-1.png" height="500" width="1200"></img>
+				<img src="/cardImages/table-1.png" id="tableImage"></img>
 				
 				<div className="User1">{array[0]}</div>
 				<div className="User2">{array[1]}</div>
@@ -51,7 +51,6 @@ class Table extends Component{
 										river={this.props.river}
 										pot={this.props.pot}
 										phase={this.props.phase}
-										players={this.props.players}
 										handNumber={this.props.handNumber}/>
 				
 
