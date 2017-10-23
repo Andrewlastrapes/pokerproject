@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Table.css';
 import Board from "./Board.js"
 import User from "./User.js"
+import Options from "./Options.js"
 
 
 
@@ -34,6 +35,18 @@ class Table extends Component{
 
 				
 				<img src="/cardImages/table-1.png" id="tableImage"></img>
+
+				<Options className="optionsBox" deal={this.props.deal.bind(this)}
+                  call ={this.props.call.bind(this)}
+                  fold={this.props.fold.bind(this)}
+                  check={this.props.check.bind(this)}
+                  handleSubmit={this.props.handleSubmit.bind(this)}
+                  handleChange={this.props.handleChange.bind(this)}
+                  players={this.props.players}
+                  phase={this.props.phase}
+                  socketid={this.props.socketid}/>
+                  
+        		
 				
 				<div className="User1">{array[0]}</div>
 				<div className="User2">{array[1]}</div>
@@ -52,7 +65,9 @@ class Table extends Component{
 										pot={this.props.pot}
 										phase={this.props.phase}
 										handNumber={this.props.handNumber}/>
-				
+
+        
+        	
 
 				</div>
 			

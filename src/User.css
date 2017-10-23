@@ -3,4 +3,29 @@
 .User {
 	color: black;
 	font-family: 'Londrina Solid', cursive;
+	height: 100%;
+}
+
+h6 {
+	margin-left: 3%;
+}
+
+.cardArray {
+	text-align: center;
+	padding-left: 20%;
+}
+
+.main {
+	height: 100%;
+	width: 100%;
+}
+
+.position {
+	top: 95%;
+	text-align: center;
+}
+
+.bet {
+	top: 95%;
+	text-align: center;
 }

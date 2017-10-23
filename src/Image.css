@@ -7,7 +7,18 @@ img {
 }
 
 
+}
 
+
+@media (min-width: 900px) and (max-width: 1099px){
+
+
+img {
+	
+	height: 75px;
+}
 
 
 }
+
+

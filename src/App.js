@@ -169,25 +169,20 @@ class App extends Component {
                phase={this.state.phase}
                pot={this.state.pot.toFixed(2)}
                socketid={this.state.socketid}
-               handNumber={this.state.handNumber}/>
+               handNumber={this.state.handNumber}
+               deal={this.deal.bind(this)}
+               call ={this.call.bind(this)}
+               fold={this.fold.bind(this)}
+               check={this.check.bind(this)}
+               handleSubmit={this.handleSubmit.bind(this)}
+               handleChange={this.handleChange.bind(this)}
+               phase={this.state.phase}/>
 
      
 
 
 
-      <div className="optionsBox">
-        
-        <Options  deal={this.deal.bind(this)}
-                  call ={this.call.bind(this)}
-                  fold={this.fold.bind(this)}
-                  check={this.check.bind(this)}
-                  handleSubmit={this.handleSubmit.bind(this)}
-                  handleChange={this.handleChange.bind(this)}
-                  players={this.state.users}
-                  phase={this.state.phase}
-                  socketid={this.state.socketid}/>
-        </div>
-
+     
 
       
 

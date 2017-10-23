@@ -3,16 +3,15 @@
 
 .options {
 	
-	margin-left: 43%;
+	left: 42%;
+	bottom: 2%;
+
 	
-	background-color: #bdcebe;
-	width: 200px;
+	
+	width: 80px;
+	position: absolute;
+
 
 }
 
-button {
-	
-	background-color: #d6cbd3;
 
-
-}
