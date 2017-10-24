@@ -2,15 +2,17 @@
 @import url('https://fonts.googleapis.com/css?family=Londrina+Solid');
 
 
-@media (min-width: 1500px){
+
+
+@media (min-width: 1800px) {
 
 .board {
 	position: absolute;
-	top: 50%;
+	top: 55%;
 	left: 35%;
 	color: black;
 	font-family: 'Londrina Solid', cursive;
-	font-size: 3em;
+	font-size: 80px;
 }
 
 #tableImage {
@@ -48,33 +50,34 @@
 
 .User8 {
 	position: absolute;
-	bottom: 13%;
-	left: 14%;
+	bottom: -40%;
+	left: 10%;
 	}
 
 .User7 {
 	position: absolute;
-	bottom: 10%;
+	bottom: -45%;
 	left: 31%;
 	}
 
 .User6 {
 	position: absolute;
-	bottom: 10%;
+	bottom: -45%;
 	right: 31%;
 	}
 
 .User5 {
 	position: absolute;
-	bottom: 13%;
-	right: 14%;
+	bottom: -40%;
+	right: 10%;
 
 	}
+
 }
 
 
+@media (min-width: 1400px) and (max-width: 1799px){
 
-@media (min-width: 1400px){
 
 .board {
 	position: absolute;
@@ -82,7 +85,7 @@
 	left: 35%;
 	color: black;
 	font-family: 'Londrina Solid', cursive;
-	font-size: 3em;
+	font-size: 60px;
 }
 
 #tableImage {
@@ -120,41 +123,40 @@
 
 .User8 {
 	position: absolute;
-	bottom: 13%;
-	left: 14%;
+	top: 90%;
+	left: 10%;
 	}
 
 .User7 {
 	position: absolute;
-	bottom: 10%;
+	top: 95%;
 	left: 31%;
 	}
 
 .User6 {
 	position: absolute;
-	bottom: 10%;
+	top: 95%;
 	right: 31%;
 	}
 
 .User5 {
 	position: absolute;
-	bottom: 13%;
-	right: 14%;
+	top: 90%;
+	right: 10%;
 
 	}
+
 }
 
-
-
-@media (min-width: 1300px){
+@media (min-width: 1300px) and (max-width: 1399px){
 
 .board {
 	position: absolute;
-	top: 50%;
+	top: 45%;
 	left: 35%;
 	color: black;
 	font-family: 'Londrina Solid', cursive;
-	font-size: 3em;
+	font-size: 55px;
 }
 
 #tableImage {
@@ -192,39 +194,40 @@
 
 .User8 {
 	position: absolute;
-	bottom: 13%;
-	left: 14%;
+	top: 75%;
+	left: 10%;
 	}
 
 .User7 {
 	position: absolute;
-	bottom: 10%;
+	top: 80%;
 	left: 31%;
 	}
 
 .User6 {
 	position: absolute;
-	bottom: 10%;
+	top: 80%;
 	right: 31%;
 	}
 
 .User5 {
 	position: absolute;
-	bottom: 13%;
-	right: 14%;
+	top: 75%;
+	right: 10%;
 
 	}
+
 }
 
-@media (min-width: 1200px){
+@media (min-width: 1200px) and (max-width: 1299px){
 
 .board {
 	position: absolute;
-	top: 50%;
+	top: 40%;
 	left: 35%;
 	color: black;
 	font-family: 'Londrina Solid', cursive;
-	font-size: 3em;
+	font-size: 50px;
 }
 
 #tableImage {
@@ -251,50 +254,52 @@
 .User3 {
 	position: absolute;
 	top: 10%;
-	right: 21%;
+	right: 31%;
 	}
 
 .User4 {
 	position: absolute;
 	top: 15%;
-	right: 5%;
+	right: 10%;
 	}
 
 .User8 {
 	position: absolute;
-	bottom: 13%;
+	top: 70%;
 	left: 10%;
 	}
 
 .User7 {
 	position: absolute;
-	bottom: 10%;
-	left: 30%;
+	top: 75%;
+	left: 31%;
 	}
 
 .User6 {
 	position: absolute;
-	bottom: 10%;
-	right: 27%;
+	top: 75%;
+	right: 31%;
 	}
 
 .User5 {
 	position: absolute;
-	bottom: 13%;
-	right: 7%;
+	top: 70%;
+	right: 10%;
 
 	}
+
 }
 
-@media (min-width: 1100px){
+
+@media (min-width: 1100px) and (max-width: 1199px){
 
 .board {
 	position: absolute;
-	top: 50%;
+	top: 35%;
 	left: 35%;
 	color: black;
 	font-family: 'Londrina Solid', cursive;
-	font-size: 3em;
+	font-size: 45px;
 }
 
 #tableImage {
@@ -321,51 +326,52 @@
 .User3 {
 	position: absolute;
 	top: 10%;
-	right: 21%;
+	right: 31%;
 	}
 
 .User4 {
 	position: absolute;
 	top: 15%;
-	right: 5%;
+	right: 10%;
 	}
 
 .User8 {
 	position: absolute;
-	bottom: 13%;
+	top: 65%;
 	left: 10%;
 	}
 
 .User7 {
 	position: absolute;
-	bottom: 10%;
-	left: 30%;
+	top: 70%;
+	left: 31%;
 	}
 
 .User6 {
 	position: absolute;
-	bottom: 10%;
-	right: 27%;
+	top: 70%;
+	right: 31%;
 	}
 
 .User5 {
 	position: absolute;
-	bottom: 13%;
-	right: 7%;
+	top: 65%;
+	right: 10%;
 
 	}
+
 }
 
 
-@media (min-width: 1000px){
+@media (min-width: 1000px) and (max-width: 1099px){
 
 .board {
 	position: absolute;
-	top: 50%;
+	top: 35%;
 	left: 35%;
 	color: black;
 	font-family: 'Londrina Solid', cursive;
-	font-size: 3em;
+	font-size: 40px;
 }
 
 #tableImage {
@@ -392,40 +398,764 @@
 .User3 {
 	position: absolute;
 	top: 10%;
-	right: 21%;
+	right: 31%;
 	}
 
 .User4 {
 	position: absolute;
 	top: 15%;
-	right: 5%;
+	right: 10%;
 	}
 
 .User8 {
 	position: absolute;
-	bottom: 13%;
+	top: 60%;
 	left: 10%;
 	}
 
 .User7 {
 	position: absolute;
-	bottom: 10%;
-	left: 30%;
+	top: 65%;
+	left: 31%;
 	}
 
 .User6 {
 	position: absolute;
-	bottom: 10%;
-	right: 27%;
+	top: 65%;
+	right: 31%;
 	}
 
 .User5 {
 	position: absolute;
-	bottom: 13%;
-	right: 7%;
+	top: 60%;
+	right: 10%;
 
 	}
+
 }
+
+@media (min-width: 950px) and (max-width: 999px){
+
+.board {
+	position: absolute;
+	top: 33%;
+	left: 35%;
+	color: black;
+	font-family: 'Londrina Solid', cursive;
+	font-size: 35px;
+}
+
+#tableImage {
+	width: 100%;
+	height: auto;
+	}
+
+
+.User1 {
+	position: absolute;
+	top: 13%;
+	left: 10%
+	
+	}
+
+
+.User2{
+	position: absolute;
+	top: 10%;
+	left: 31%;
+	}
+
+
+.User3 {
+	position: absolute;
+	top: 10%;
+	right: 31%;
+	}
+
+.User4 {
+	position: absolute;
+	top: 15%;
+	right: 10%;
+	}
+
+.User8 {
+	position: absolute;
+	top: 55%;
+	left: 10%;
+	}
+
+.User7 {
+	position: absolute;
+	top: 60%;
+	left: 31%;
+	}
+
+.User6 {
+	position: absolute;
+	top: 60%;
+	right: 31%;
+	}
+
+.User5 {
+	position: absolute;
+	top: 55%;
+	right: 10%;
+
+	}
+
+}
+
+
+@media (min-width: 900px) and (max-width: 949px){
+
+.board {
+	position: absolute;
+	top: 30%;
+	left: 35%;
+	color: black;
+	font-family: 'Londrina Solid', cursive;
+	font-size: 30px;
+}
+
+#tableImage {
+	width: 100%;
+	height: auto;
+	}
+
+
+.User1 {
+	position: absolute;
+	top: 11%;
+	left: 10%
+	
+	}
+
+
+.User2{
+	position: absolute;
+	top: 9%;
+	left: 31%;
+	}
+
+
+.User3 {
+	position: absolute;
+	top: 9%;
+	right: 31%;
+	}
+
+.User4 {
+	position: absolute;
+	top: 11%;
+	right: 10%;
+	}
+
+.User8 {
+	position: absolute;
+	top: 50%;
+	left: 10%;
+	}
+
+.User7 {
+	position: absolute;
+	top: 55%;
+	left: 31%;
+	}
+
+.User6 {
+	position: absolute;
+	top: 55%;
+	right: 31%;
+	}
+
+.User5 {
+	position: absolute;
+	top: 50%;
+	right: 10%;
+
+	}
+
+}
+
+@media (min-width: 850px) and (max-width: 899px){
+
+.board {
+	position: absolute;
+	top: 28%;
+	left: 35%;
+	color: black;
+	font-family: 'Londrina Solid', cursive;
+	font-size: 25px;
+}
+
+#tableImage {
+	width: 100%;
+	height: auto;
+	}
+
+
+.User1 {
+	position: absolute;
+	top: 11%;
+	left: 10%
+	
+	}
+
+
+.User2{
+	position: absolute;
+	top: 9%;
+	left: 31%;
+	}
+
+
+.User3 {
+	position: absolute;
+	top: 9%;
+	right: 31%;
+	}
+
+.User4 {
+	position: absolute;
+	top: 11%;
+	right: 10%;
+	}
+
+.User8 {
+	position: absolute;
+	top: 45%;
+	left: 10%;
+	}
+
+.User7 {
+	position: absolute;
+	top: 50%;
+	left: 31%;
+	}
+
+.User6 {
+	position: absolute;
+	top: 50%;
+	right: 31%;
+	}
+
+.User5 {
+	position: absolute;
+	top: 45%;
+	right: 10%;
+
+	}
+
+}
+
+@media (min-width: 800px) and (max-width: 849px){
+
+.board {
+	position: absolute;
+	top: 26%;
+	left: 35%;
+	color: black;
+	font-family: 'Londrina Solid', cursive;
+	font-size: 25px;
+}
+
+#tableImage {
+	width: 100%;
+	height: auto;
+	}
+
+
+.User1 {
+	position: absolute;
+	top: 10%;
+	left: 10%
+	
+	}
+
+
+.User2{
+	position: absolute;
+	top: 9%;
+	left: 31%;
+	}
+
+
+.User3 {
+	position: absolute;
+	top: 9%;
+	right: 31%;
+	}
+
+.User4 {
+	position: absolute;
+	top: 10%;
+	right: 10%;
+	}
+
+.User8 {
+	position: absolute;
+	top: 40%;
+	left: 10%;
+	}
+
+.User7 {
+	position: absolute;
+	top: 45%;
+	left: 31%;
+	}
+
+.User6 {
+	position: absolute;
+	top: 45%;
+	right: 31%;
+	}
+
+.User5 {
+	position: absolute;
+	top: 40%;
+	right: 10%;
+
+	}
+
+}
+
+
+
+@media (min-width: 750px) and (max-width: 799px){
+
+.board {
+	position: absolute;
+	top: 24%;
+	left: 35%;
+	color: black;
+	font-family: 'Londrina Solid', cursive;
+	font-size: 22px;
+}
+
+#tableImage {
+	width: 100%;
+	height: auto;
+	}
+
+
+.User1 {
+	position: absolute;
+	top: 10%;
+	left: 10%
+	
+	}
+
+
+.User2{
+	position: absolute;
+	top: 9%;
+	left: 31%;
+	}
+
+
+.User3 {
+	position: absolute;
+	top: 9%;
+	right: 31%;
+	}
+
+.User4 {
+	position: absolute;
+	top: 10%;
+	right: 10%;
+	}
+
+.User8 {
+	position: absolute;
+	top: 35%;
+	left: 10%;
+	}
+
+.User7 {
+	position: absolute;
+	top: 40%;
+	left: 31%;
+	}
+
+.User6 {
+	position: absolute;
+	top: 40%;
+	right: 31%;
+	}
+
+.User5 {
+	position: absolute;
+	top: 35%;
+	right: 10%;
+
+	}
+
+}
+
+@media (min-width: 700px) and (max-width: 749px){
+
+.board {
+	position: absolute;
+	top: 22%;
+	left: 35%;
+	color: black;
+	font-family: 'Londrina Solid', cursive;
+	font-size: 20px;
+}
+
+#tableImage {
+	width: 100%;
+	height: auto;
+	}
+
+
+.User1 {
+	position: absolute;
+	top: 9%;
+	left: 10%
+	
+	}
+
+
+.User2{
+	position: absolute;
+	top: 8%;
+	left: 31%;
+	}
+
+
+.User3 {
+	position: absolute;
+	top: 8%;
+	right: 31%;
+	}
+
+.User4 {
+	position: absolute;
+	top: 9%;
+	right: 10%;
+	}
+
+.User8 {
+	position: absolute;
+	top: 30%;
+	left: 10%;
+	}
+
+.User7 {
+	position: absolute;
+	top: 35%;
+	left: 31%;
+	}
+
+.User6 {
+	position: absolute;
+	top: 35%;
+	right: 31%;
+	}
+
+.User5 {
+	position: absolute;
+	top: 30%;
+	right: 10%;
+
+	}
+
+}
+
+@media (min-width: 650px) and (max-width: 699px){
+
+.board {
+	position: absolute;
+	top: 20%;
+	left: 35%;
+	color: black;
+	font-family: 'Londrina Solid', cursive;
+	font-size: 17px;
+}
+
+#tableImage {
+	width: 100%;
+	height: auto;
+	}
+
+
+.User1 {
+	position: absolute;
+	top: 7%;
+	left: 10%
+	
+	}
+
+
+.User2{
+	position: absolute;
+	top: 6%;
+	left: 31%;
+	}
+
+
+.User3 {
+	position: absolute;
+	top: 6%;
+	right: 31%;
+	}
+
+.User4 {
+	position: absolute;
+	top: 7%;
+	right: 10%;
+	}
+
+.User8 {
+	position: absolute;
+	top: 25%;
+	left: 10%;
+	}
+
+.User7 {
+	position: absolute;
+	top: 30%;
+	left: 31%;
+	}
+
+.User6 {
+	position: absolute;
+	top: 30%;
+	right: 31%;
+	}
+
+.User5 {
+	position: absolute;
+	top: 25%;
+	right: 10%;
+
+	}
+
+}
+
+@media (min-width: 600px) and (max-width: 649px){
+
+.board {
+	position: absolute;
+	top: 18%;
+	left: 35%;
+	color: black;
+	font-family: 'Londrina Solid', cursive;
+	font-size: 16px;
+}
+
+#tableImage {
+	width: 100%;
+	height: auto;
+	}
+
+
+.User1 {
+	position: absolute;
+	top: 7%;
+	left: 10%
+	
+	}
+
+
+.User2{
+	position: absolute;
+	top: 6%;
+	left: 31%;
+	}
+
+
+.User3 {
+	position: absolute;
+	top: 6%;
+	right: 31%;
+	}
+
+.User4 {
+	position: absolute;
+	top: 7%;
+	right: 10%;
+	}
+
+.User8 {
+	position: absolute;
+	top: 20%;
+	left: 10%;
+	}
+
+.User7 {
+	position: absolute;
+	top: 25%;
+	left: 31%;
+	}
+
+.User6 {
+	position: absolute;
+	top: 25%;
+	right: 31%;
+	}
+
+.User5 {
+	position: absolute;
+	top: 20%;
+	right: 10%;
+
+	}
+
+}
+
+
+@media (min-width: 550px) and (max-width: 599px){
+
+.board {
+	position: absolute;
+	top: 18%;
+	left: 35%;
+	color: black;
+	font-family: 'Londrina Solid', cursive;
+	font-size: 15px;
+}
+
+#tableImage {
+	width: 100%;
+	height: auto;
+	}
+
+
+.User1 {
+	position: absolute;
+	top: 6%;
+	left: 10%
+	
+	}
+
+
+.User2{
+	position: absolute;
+	top: 5%;
+	left: 31%;
+	}
+
+
+.User3 {
+	position: absolute;
+	top: 6%;
+	right: 31%;
+	}
+
+.User4 {
+	position: absolute;
+	top: 6%;
+	right: 10%;
+	}
+
+.User8 {
+	position: absolute;
+	top: 5%;
+	left: 10%;
+	}
+
+.User7 {
+	position: absolute;
+	top: 20%;
+	left: 31%;
+	}
+
+.User6 {
+	position: absolute;
+	top: 20%;
+	right: 31%;
+	}
+
+.User5 {
+	position: absolute;
+	top: 15%;
+	right: 10%;
+
+	}
+
+}
+
+
+@media (min-width: 500px) and (max-width: 549px){
+
+.board {
+	position: absolute;
+	top: 18%;
+	left: 35%;
+	color: black;
+	font-family: 'Londrina Solid', cursive;
+	font-size: 15px;
+}
+
+#tableImage {
+	width: 100%;
+	height: auto;
+	}
+
+
+.User1 {
+	position: absolute;
+	top: 6%;
+	left: 10%
+	
+	}
+
+
+.User2{
+	position: absolute;
+	top: 7%;
+	left: 31%;
+	}
+
+
+.User3 {
+	position: absolute;
+	top: 7%;
+	right: 31%;
+	}
+
+.User4 {
+	position: absolute;
+	top: 6%;
+	right: 10%;
+	}
+
+.User8 {
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	}
+
+.User7 {
+	position: absolute;
+	top: 15%;
+	left: 31%;
+	}
+
+.User6 {
+	position: absolute;
+	top: 15%;
+	right: 31%;
+	}
+
+.User5 {
+	position: absolute;
+	top: 10%;
+	right: 10%;
+
+	}
+
+}
+
+
+
+
+
+
+
+
 
 
 

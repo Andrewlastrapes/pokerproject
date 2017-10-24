@@ -53,23 +53,32 @@ class Options extends Component{
 			<div className="options">
 
 				
-
-				{numUsers > 1 && this.props.phase === "Game Over" ? <div onClick={this.props.deal}><button type="button" class="btn btn-primary">Deal</button></div> : ""}  
+				<div className="btn-group" role="group">
+				
+				{numUsers > 1 && this.props.phase === "Game Over" ? <div onClick={this.props.deal}><button type="button" className="btn btn-primary">Deal</button></div> : ""}  
 				
 				
 
-				{isActiveUser === true && (activeUser.bet < marker.bet || activeUser.bet < Rmarker.bet) ?<div onClick={this.props.call}><button type="button" class="btn btn-primary">Call</button></div> : ""}
+				{isActiveUser === true && (activeUser.bet < marker.bet || activeUser.bet < Rmarker.bet) ? <button onClick={this.props.call} type="button" className="btn btn-primary">Call</button> : ""}
 				
-				{isActiveUser === true && (activeUser.bet < marker.bet || activeUser.bet < Rmarker.bet) ? <div onClick={this.props.fold}><button type="button" class="btn btn-primary">Fold</button></div> : ""} 
+				{isActiveUser === true && (activeUser.bet < marker.bet || activeUser.bet < Rmarker.bet) ? <button onClick={this.props.fold} type="button" className="btn btn-primary">Fold</button> : ""} 
 				
-				{isActiveUser === true && (activeUser.bet === marker.bet || activeUser.bet === marker.bet) ? <div onClick={this.props.check}><button type="button" class="btn btn-primary">Check</button></div> : ""}
+				{isActiveUser === true && (activeUser.bet === marker.bet || activeUser.bet === marker.bet) ? <button onClick={this.props.check} type="button" className="btn btn-primary">Check</button> : ""}
+				 
+				 </div>
 				
+
 				{isActiveUser === false || this.props.phase === "Game Over" ? "" :<form onSubmit={this.props.handleSubmit}>
-			       
-				        <input type="text" value={this.props.raiseValue} onChange={this.props.handleChange}/>
-				        <button type="button" class="btn btn-primary">Raise</button>
-				      </form>}
+			    
 
+				       <div className="input-group">
+						 <input type="text" className="form-control" value={this.props.raiseValue} onChange={this.props.handleChange}/>
+				       	   <span className="input-group-btn">
+				       	 	<button type="button" className="btn btn-primary">Raise</button>
+				      		</span>
+				      	</div>
+				      </form>}
+				
 				 
 				
 				

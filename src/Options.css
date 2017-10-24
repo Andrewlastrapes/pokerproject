@@ -1,17 +1,163 @@
 
 @import url('https://fonts.googleapis.com/css?family=Londrina+Solid');
 
+
+.options {
+	width: 150px;
+	left: calc(50% - 75px);
+	bottom: calc(50% - 75px);
+	position: absolute;
+}
+
+
+
+@media (min-width: 1800px) {
+
 .options {
 	
-	left: 42%;
-	bottom: 2%;
 
-	
-	
-	width: 80px;
-	position: absolute;
+
 
 
 }
 
 
+
+}
+
+
+
+@media (min-width: 1600px) and (max-width: 1799px){
+
+
+.options {
+	
+
+	
+
+
+}
+
+
+}
+
+
+
+
+
+@media (min-width: 1500px) and (max-width: 1599px){
+
+
+.options {
+	
+
+
+}
+
+}
+
+
+@media (min-width: 1400px) and (max-width: 1499px){
+
+	.options {
+	
+
+
+
+}
+
+
+
+}
+
+
+@media (min-width: 1300px) and (max-width: 1399px){
+
+
+.options {
+	
+
+
+}
+
+}
+
+
+@media (min-width: 1200px) and (max-width: 1299px){
+
+
+.options {
+	
+
+	
+
+
+}
+
+}
+
+
+@media (min-width: 1100px) and (max-width: 1199px){
+
+
+.options {
+	
+
+	
+
+
+}
+
+
+}
+
+@media (min-width: 1000px) and (max-width: 1099px){
+
+
+.options {
+	
+
+
+
+}
+
+
+}
+
+@media (min-width: 900px) and (max-width: 999px){
+
+.options {
+	
+
+	
+
+
+}
+
+}
+
+@media (min-width: 800px) and (max-width: 899px){
+
+
+.options {
+	
+
+	
+
+}
+
+}
+
+
+
+@media (min-width: 700px) and (max-width: 799px){
+
+
+.options {
+	
+
+
+
+}
+
+}

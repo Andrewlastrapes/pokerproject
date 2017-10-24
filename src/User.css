@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Londrina+Solid');
 
+
+@media (min-width: 1800px) {
+
 .User {
 	color: black;
 	font-family: 'Londrina Solid', cursive;
 	height: 100%;
-}
+	font-size: 2.6em;
 
-h6 {
-	margin-left: 3%;
 }
 
 .cardArray {
@@ -15,17 +16,76 @@ h6 {
 	padding-left: 20%;
 }
 
-.main {
+}
+
+
+@media (min-width: 1300px) and (max-width: 1799px){
+
+.User {
+	color: black;
+	font-family: 'Londrina Solid', cursive;
 	height: 100%;
-	width: 100%;
+	font-size: 2em;
+
 }
 
-.position {
-	top: 95%;
+.cardArray {
 	text-align: center;
+	padding-left: 20%;
 }
 
-.bet {
-	top: 95%;
+}
+
+
+@media (min-width: 1100px) and (max-width: 1299px) {
+
+.User {
+	color: black;
+	font-family: 'Londrina Solid', cursive;
+	height: 100%;
+	font-size: 1.6em;
+
+}
+
+.cardArray {
 	text-align: center;
+	padding-left: 20%;
+}
+
+}
+
+
+@media (min-width: 900px) and (max-width: 1099px) {
+
+.User {
+	color: black;
+	font-family: 'Londrina Solid', cursive;
+	height: 100%;
+	font-size: 1.2em;
+
+}
+
+.cardArray {
+	text-align: center;
+	padding-left: 20%;
+}
+
+}
+
+
+@media (min-width: 700px) and (max-width: 899px) {
+
+.User {
+	color: black;
+	font-family: 'Londrina Solid', cursive;
+	height: 100%;
+	font-size: .8em;
+
+}
+
+.cardArray {
+	text-align: center;
+	padding-left: 20%;
+}
+
 }
