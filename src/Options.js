@@ -42,7 +42,6 @@ class Options extends Component{
 		}
 
 		
-		
 
 		
 		var numUsers = this.props.players.length
@@ -53,11 +52,11 @@ class Options extends Component{
 			<div className="options">
 
 				
-				<div className="btn-group" role="group">
-				
-				{numUsers > 1 && this.props.phase === "Game Over" ? <div onClick={this.props.deal}><button type="button" className="btn btn-primary">Deal</button></div> : ""}  
 				
 				
+				{numUsers > 1 && this.props.phase === "Game Over" ? <button onClick={this.props.deal} type="button" className="btn btn-primary">Deal</button> : ""}  
+				
+				<div className="btn-group" role="group" id="options1">
 
 				{isActiveUser === true && (activeUser.bet < marker.bet || activeUser.bet < Rmarker.bet) ? <button onClick={this.props.call} type="button" className="btn btn-primary">Call</button> : ""}
 				
@@ -65,19 +64,25 @@ class Options extends Component{
 				
 				{isActiveUser === true && (activeUser.bet === marker.bet || activeUser.bet === marker.bet) ? <button onClick={this.props.check} type="button" className="btn btn-primary">Check</button> : ""}
 				 
-				 </div>
+				</div>
 				
-
+				
+				
 				{isActiveUser === false || this.props.phase === "Game Over" ? "" :<form onSubmit={this.props.handleSubmit}>
 			    
 
-				       <div className="input-group">
+				      <div className="input-group">
+					
 						 <input type="text" className="form-control" value={this.props.raiseValue} onChange={this.props.handleChange}/>
 				       	   <span className="input-group-btn">
-				       	 	<button type="button" className="btn btn-primary">Raise</button>
+				       	 	<button type="submit" className="btn btn-primary">Raise</button>
 				      		</span>
-				      	</div>
+				     	
+				   </div>
 				      </form>}
+				   
+
+				     
 				
 				 
 				

@@ -23,7 +23,7 @@ class App extends Component {
 
 
   
-   console.log(window.location)
+  
   this.socket = new io(window.location.protocol + "//" + window.location.host, {query: serialize(window.user)})
  
 
@@ -53,7 +53,9 @@ class App extends Component {
       pot: 0,
       fold: [],
       raiseValue: 0,
-      handNumber: 0
+      handNumber: 0,
+      winners : []
+    
     
      
 
@@ -173,10 +175,12 @@ class App extends Component {
                deal={this.deal.bind(this)}
                call ={this.call.bind(this)}
                fold={this.fold.bind(this)}
+               raise={this.raise.bind(this)}
                check={this.check.bind(this)}
                handleSubmit={this.handleSubmit.bind(this)}
                handleChange={this.handleChange.bind(this)}
-               phase={this.state.phase}/>
+               phase={this.state.phase}
+               winners={this.state.winners}/>
 
      
 

@@ -33,6 +33,9 @@ class Table extends Component{
 			
 			<div className="table">
 
+
+
+
 				
 				<img src="/cardImages/table-1.png" id="tableImage"></img>
 
@@ -40,12 +43,14 @@ class Table extends Component{
                   call ={this.props.call.bind(this)}
                   fold={this.props.fold.bind(this)}
                   check={this.props.check.bind(this)}
+                  raise={this.props.raise.bind(this)}
                   handleSubmit={this.props.handleSubmit.bind(this)}
                   handleChange={this.props.handleChange.bind(this)}
                   players={this.props.players}
                   phase={this.props.phase}
                   socketid={this.props.socketid}/>
-                  
+			
+
         		
 				
 				<div className="User1">{array[0]}</div>
@@ -64,7 +69,8 @@ class Table extends Component{
 										river={this.props.river}
 										pot={this.props.pot}
 										phase={this.props.phase}
-										handNumber={this.props.handNumber}/>
+										handNumber={this.props.handNumber}
+										winners={this.props.winners}/>
 
         
         	

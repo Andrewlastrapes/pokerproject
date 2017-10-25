@@ -32,23 +32,27 @@ render(){
 
 	return(
 
-	<div className={"main"}>
-		<div className={this.props.player.isActive ? "highlighted" : "User"}>
-			
+		
+		
+			<div className={this.props.player.isActive ? "highlighted" : "User"}>
+				
 
-			<div className={"username"}>{this.props.player.username}</div>
-			<div><h6 className={"stack"}>{"$" + this.props.player.stack.toFixed(2)}</h6></div>
-			
-			<div className={"cardArray"}>{array}</div>
+				{this.props.player.username}
+				
+				
 
-			<div><h6 className={"position"}>{this.props.player.position}</h6></div>
-			
-			<div><h6 className={"bet"}>{"$" + this.props.player.bet.toFixed(2)}</h6></div>
 
+				<h5>{"$" + this.props.player.stack.toFixed(2)}</h5>
+				<div className={"cardArray"}>{array}</div>
+
+				<h5>{this.props.player.position}</h5>
+				
+				
+
+				{this.props.player.bet > 0 ? <h5>{"Bet: $" + this.props.player.bet.toFixed(2)}</h5> : ""}
+
+			</div>
 			
-			
-		</div>
-	</div>
 		)
 }
 

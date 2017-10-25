@@ -36,7 +36,11 @@ class Board extends Component{
 
 		}
 		
+		var theWinners = []
 
+		for (var i = 0; i < this.props.winners.length; i++){
+			theWinners.push(this.props.winners[0][i].username)
+		}
 		
 		
 		
@@ -47,7 +51,7 @@ class Board extends Component{
 				
 				
 
-				<div className="container">
+				<div className="container cards">
 					
 
 
@@ -58,7 +62,7 @@ class Board extends Component{
 
 					</div>
 
-				<div className="pot">{this.props.phase != "Game Over" ? "Pot: $"+ this.props.pot : ""}</div>
+				<div className="pot">{this.props.phase === "Game Over" && this.props.handNumber > 0 ? theWinners.join(", ") + " won " + this.props.pot : "Pot: $" + this.props.pot}</div>
 			
 		</div>		
 			)
