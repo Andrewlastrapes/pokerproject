@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "bcrypt": "^1.0.3",
     "bootstrap": "^3.3.7",
     "pokersolver": "^2.1.2",
     "react": "^15.6.1",
