@@ -62,6 +62,7 @@ class Board extends Component{
 
 					</div>
 
+				<div className="firstMessage">{this.props.players.length < 2 ? "2 players are needed to begin game." : ""}</div>
 				<div className="pot">{this.props.phase === "Game Over" && this.props.handNumber > 0 ? theWinners.join(", ") + " won " + this.props.pot : "Pot: $" + this.props.pot}</div>
 			
 		</div>		
