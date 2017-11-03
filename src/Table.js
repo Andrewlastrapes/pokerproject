@@ -70,7 +70,8 @@ class Table extends Component{
 										pot={this.props.pot}
 										phase={this.props.phase}
 										handNumber={this.props.handNumber}
-										winners={this.props.winners}/>
+										winners={this.props.winners}
+										players={this.props.players}/>
 
         
         	
